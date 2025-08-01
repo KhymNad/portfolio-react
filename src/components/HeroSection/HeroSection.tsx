@@ -12,7 +12,7 @@ const HeroSection: React.FC = () => {
                     <h2>Full-Stack Developer</h2>
                     <div className={styles.links_container}>
                         <a
-                        href="https://github.com/YOUR_USERNAME"
+                        href="https://github.com/KhymNad"
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.link_icon}
@@ -21,7 +21,7 @@ const HeroSection: React.FC = () => {
                         <FontAwesomeIcon icon={faSquareGithub} />
                         </a>
                         <a
-                        href="https://linkedin.com/in/YOUR_PROFILE"
+                        href="https://www.linkedin.com/in/khym-nad-76b262235/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.link_icon}

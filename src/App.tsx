@@ -1,5 +1,5 @@
 import './App.css'
-import { NavBar, HeroSection } from './components';
+import { NavBar, HeroSection, ProjectSection } from './components';
 
 function App() {
 
@@ -7,6 +7,7 @@ function App() {
     <>
       <NavBar />
       <HeroSection />
+      <ProjectSection />
     </>
   )
 }

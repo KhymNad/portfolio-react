@@ -5,6 +5,7 @@
     width: 100%;
     padding: 2rem 2rem;
     background-color: transparent;
+    height: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,7 +16,7 @@
 
 .nav_left {
     padding-left: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: white;
 }
 
@@ -31,11 +32,12 @@
 
 .nav_right li {
     position: relative;
+    font-size: 1rem;
     color: #9e9e9e;
     cursor: pointer;
     transition: color 0.3s ease;
     padding-bottom: 0.25rem;
-    }
+}
 
 .nav_right li:hover {
     color: #ffffff;
