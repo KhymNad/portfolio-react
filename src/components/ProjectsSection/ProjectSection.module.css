@@ -23,7 +23,7 @@
 }
 
 .section_title {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     max-width: 600px;
     display: flex;
     flex-direction: column;
@@ -33,6 +33,7 @@
 .title {
     font-size: 2rem;
     font-weight: 600;
+    margin-bottom: 1rem;;
 }
 
 .underline {
@@ -45,5 +46,5 @@
 .project_grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1rem;
 }

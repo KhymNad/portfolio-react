@@ -9,6 +9,7 @@ interface ProjectCardProps {
     image: string;
     liveDemoLink: string;
     detailsLink: string;
+    tags: string[];
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -17,6 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     image,
     liveDemoLink,
     detailsLink,
+    tags,
 }) => {
     return (
         <div className={styles.card}>
@@ -26,6 +28,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <div className={styles.content}>
                 <h3>{title}</h3>
                 <p>{description}</p>
+                {tags && tags.length > 0 && (
+                    <div className={styles.tagList}>
+                        {tags.slice(0, 3).map((tag, i) => (
+                            <span key={i} className={styles.tag}>
+                                {tag}
+                            </span>
+                        ))}
+                        {tags.length > 3 && (
+                            <span className={styles.tagOverflow}>
+                                +{tags.length - 3} more
+                            </span>
+                        )}
+                    </div>
+                )}
                 <div className={styles.links}>
                     <a
                         href={liveDemoLink}

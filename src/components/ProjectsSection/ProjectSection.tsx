@@ -9,6 +9,7 @@ const projects = [
         image: '../../images/projects/resume-matcher-thumb.png',
         liveDemoLink: 'https://your-resume-demo-link.com',
         detailsLink: 'https://github.com/your-repo/resume-matcher',
+        tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0', 'extra1', 'easy2'],
     },
     {
         title: 'Decentralized Social Network',
@@ -16,6 +17,7 @@ const projects = [
         image: '../../images/projects/resume-matcher-thumb.png',
         liveDemoLink: 'https://your-social-demo.com',
         detailsLink: 'https://github.com/your-repo/decentralized-social',
+        tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
     },
     {
         title: 'Neuroscience Hackathon App',
@@ -23,6 +25,7 @@ const projects = [
         image: '../../images/projects/resume-matcher-thumb.png',
         liveDemoLink: 'https://your-hackathon-demo.com',
         detailsLink: 'https://github.com/your-repo/neuro-hackathon-app',
+        tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
     },
     {
         title: 'Neuroscience Hackathon App',
@@ -30,6 +33,7 @@ const projects = [
         image: '../../images/projects/resume-matcher-thumb.png',
         liveDemoLink: 'https://your-hackathon-demo.com',
         detailsLink: 'https://github.com/your-repo/neuro-hackathon-app',
+        tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
     },
     {
         title: 'Neuroscience Hackathon App',
@@ -37,6 +41,7 @@ const projects = [
         image: '../../images/projects/resume-matcher-thumb.png',
         liveDemoLink: 'https://your-hackathon-demo.com',
         detailsLink: 'https://github.com/your-repo/neuro-hackathon-app',
+        tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
     },
     {
         title: 'Neuroscience Hackathon App',
@@ -44,6 +49,7 @@ const projects = [
         image: '../../images/projects/resume-matcher-thumb.png',
         liveDemoLink: 'https://your-hackathon-demo.com',
         detailsLink: 'https://github.com/your-repo/neuro-hackathon-app',
+        tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
     },
 ];
 
