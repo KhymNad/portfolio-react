@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './ProjectCard.module.css';
@@ -8,8 +9,9 @@ interface ProjectCardProps {
     description: string;
     image: string;
     liveDemoLink: string;
-    detailsLink: string;
+    detailsLink: string; // optional if using slug
     tags: string[];
+    slug: string; // ← add this
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -17,8 +19,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     description,
     image,
     liveDemoLink,
-    detailsLink,
     tags,
+    slug,
 }) => {
     return (
         <div className={styles.card}>
@@ -52,15 +54,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         <FontAwesomeIcon icon={faPlay} className={styles.btnIcon} />
                         Live Demo
                     </a>
-                    <a
-                        href={detailsLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.details}
-                    >
+                    <Link to={`/projects/${slug}`} className={styles.details}>
                         Details
                         <FontAwesomeIcon icon={faArrowRight} className={styles.details_icon} />
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

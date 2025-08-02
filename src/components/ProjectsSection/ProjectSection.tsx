@@ -10,6 +10,7 @@ const projects = [
         liveDemoLink: 'https://your-resume-demo-link.com',
         detailsLink: 'https://github.com/your-repo/resume-matcher',
         tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0', 'extra1', 'easy2'],
+        slug: 'resume-matcher'
     },
     {
         title: 'Decentralized Social Network',
@@ -18,6 +19,7 @@ const projects = [
         liveDemoLink: 'https://your-social-demo.com',
         detailsLink: 'https://github.com/your-repo/decentralized-social',
         tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
+        slug: 'decentralized-social'
     },
     {
         title: 'Neuroscience Hackathon App',
@@ -26,6 +28,7 @@ const projects = [
         liveDemoLink: 'https://your-hackathon-demo.com',
         detailsLink: 'https://github.com/your-repo/neuro-hackathon-app',
         tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
+        slug: 'neuroscience-hackathon'
     },
     {
         title: 'Neuroscience Hackathon App',
@@ -34,6 +37,7 @@ const projects = [
         liveDemoLink: 'https://your-hackathon-demo.com',
         detailsLink: 'https://github.com/your-repo/neuro-hackathon-app',
         tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
+        slug: 'neuroscience-hackathon'
     },
     {
         title: 'Neuroscience Hackathon App',
@@ -42,6 +46,7 @@ const projects = [
         liveDemoLink: 'https://your-hackathon-demo.com',
         detailsLink: 'https://github.com/your-repo/neuro-hackathon-app',
         tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
+        slug: 'neuroscience-hackathon'
     },
     {
         title: 'Neuroscience Hackathon App',
@@ -50,6 +55,7 @@ const projects = [
         liveDemoLink: 'https://your-hackathon-demo.com',
         detailsLink: 'https://github.com/your-repo/neuro-hackathon-app',
         tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
+        slug: 'neuroscience-hackathon'
     },
 ];
 
