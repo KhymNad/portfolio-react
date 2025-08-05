@@ -74,19 +74,26 @@
 
 .image {
     width: 100%;
-    max-width: 100%; /* Remove hard-coded max to rely on container */
+    max-width: 100%;
     border-radius: 10px;
 }
 
 .features {
     width: 100%;
-    max-width: 100%; /* Match image width */
+    max-width: 100%;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.features:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 }
 
 .features > h3 {
@@ -120,7 +127,7 @@
     height: 4px;
     background-color: white;
     border-radius: 2px;
-    transition: width 0.3s ease;
+    transition: width 0.4s ease-in-out;
     margin: 1rem 0;
 }
 
@@ -203,4 +210,34 @@
 
 .btnIcon {
     font-size: 1rem;
+}
+
+.imageWrapper {
+    cursor: zoom-in;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.zoomOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: zoom-out;
+}
+
+.zoomedImage {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
 }

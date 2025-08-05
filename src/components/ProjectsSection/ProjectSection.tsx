@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
 import styles from './ProjectSection.module.css';
 import ProjectCard from './ProjectCard';
 
@@ -61,7 +62,10 @@ const projects = [
 
 const ProjectSection: React.FC = () => {
     const titleRef = useRef<HTMLHeadingElement>(null);
+    const sectionRef = useRef<HTMLElement>(null);
     const [underlineWidth, setUnderlineWidth] = useState(0);
+
+    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
     useEffect(() => {
         if (titleRef.current) {
@@ -71,14 +75,18 @@ const ProjectSection: React.FC = () => {
     }, []);
 
     return (
-        <section className={styles.project_section} id="projects">
+        <section className={styles.project_section} id="projects" ref={sectionRef}>
             <div className={styles.project_container}>
                 <div className={styles.section_title}>
-                <h2 className={styles.title} ref={titleRef}>Technical Projects</h2>
-                <div
-                    className={styles.underline}
-                    style={{ width: `${underlineWidth}px` }}
-                />
+                    <h2 className={styles.title} ref={titleRef}>
+                        Technical Projects
+                    </h2>
+                    <motion.div
+                        className={styles.underline}
+                        initial={{ width: 0 }}
+                        animate={{ width: isInView ? underlineWidth : 0 }}
+                        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
+                    />
                 </div>
                 <div className={styles.project_grid}>
                 {projects.map((project, index) => (
