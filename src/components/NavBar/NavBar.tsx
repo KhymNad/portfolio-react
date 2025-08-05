@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './NavBar.module.css';
+import { HashLink } from 'react-router-hash-link';
 
 const NavBar: React.FC = () => {
     return (
@@ -8,8 +9,8 @@ const NavBar: React.FC = () => {
                 Khym
             </div>
             <ul className={styles.nav_right}>
-                <li>Home</li>
-                <li>Projects</li>
+                <HashLink smooth to="#home">Home</HashLink>
+                <HashLink smooth to="#projects">Projects</HashLink>
                 <li>Skills</li>
                 <li>Education</li>
                 <li>Contact</li>

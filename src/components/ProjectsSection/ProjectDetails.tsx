@@ -1,4 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faSquareGithub } from '@fortawesome/free-brands-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import styles from './ProjectDetails.module.css';
 
@@ -29,14 +32,15 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
         useEffect(() => {
             if (titleRef.current) {
             const titleWidth = titleRef.current.offsetWidth;
-            setUnderlineWidth(titleWidth + 50);
+            setUnderlineWidth(titleWidth/2.5);
             }
         }, []);
 
     return (
         <div className={styles.main_content}>
             <div className={styles.navigate}>
-                <button className={styles.back_button} onClick={() => navigate('/projects')}>
+                {/* TODO: navigate to /projects on main page */}
+                <button className={styles.back_button} onClick={() => navigate('/#projects')}>
                     ← Back
                 </button>
                 <div className={styles.route}>
@@ -57,10 +61,25 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                     </div>
                     <p>{description}</p>
                     <div className={styles.links}>
-                        <a href={githubLink} target="_blank" rel="noopener noreferrer">Github</a>
-                        <a href={liveDemoLink} target="_blank" rel="noopener noreferrer">Live Demo</a>
+                        <a
+                            href={githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                            className={styles.btnOutline}
+                        >
+                            <FontAwesomeIcon icon={faSquareGithub} className={styles.btnIcon} /> Github
+                        </a>
+                        <a
+                            href={liveDemoLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.btnOutline}
+                        >
+                            <FontAwesomeIcon icon={faPlay} className={styles.btnIcon} />
+                            Live Demo
+                        </a>
                     </div>
-
                     <h3>&lt;/&gt; Technologies Used</h3>
                     <div className={styles.tagList}>
                         {tags.map((tag, i) => (

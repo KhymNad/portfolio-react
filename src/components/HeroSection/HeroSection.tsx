@@ -5,7 +5,7 @@ import styles from './HeroSection.module.css';
 
 const HeroSection: React.FC = () => {
     return (
-        <div className={styles.main}>
+        <div className={styles.main} id="home">
             <div className={styles.content_container}>
                 <div className={styles.content_left}>
                     <h1>Khym Nad</h1>

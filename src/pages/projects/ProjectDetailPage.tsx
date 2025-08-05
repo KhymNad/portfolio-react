@@ -32,7 +32,6 @@ const projectData: Record<string, Project> = {
 
 export default function ProjectPage() {
   const { slug } = useParams();
-
   const data = projectData[slug ?? ''];
 
   if (!data) return <p style={{ color: 'white' }}>Project not found</p>;
@@ -40,7 +39,9 @@ export default function ProjectPage() {
   return (
     <>
       <NavBar />
-      <ProjectDetails {...data} />
+      <div style={{ paddingTop: '6rem' }}>
+        <ProjectDetails {...data} />
+      </div>
     </>
   );
 }

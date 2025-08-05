@@ -71,7 +71,7 @@ const ProjectSection: React.FC = () => {
     }, []);
 
     return (
-        <section className={styles.project_section}>
+        <section className={styles.project_section} id="projects">
             <div className={styles.project_container}>
                 <div className={styles.section_title}>
                 <h2 className={styles.title} ref={titleRef}>Technical Projects</h2>
