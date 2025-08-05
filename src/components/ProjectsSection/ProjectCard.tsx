@@ -9,9 +9,9 @@ interface ProjectCardProps {
     description: string;
     image: string;
     liveDemoLink: string;
-    detailsLink: string; // optional if using slug
+    detailsLink: string;
     tags: string[];
-    slug: string; // ← add this
+    slug: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({

@@ -1,4 +1,4 @@
-import './App.css';
+import './App.css'
 import { NavBar, HeroSection, ProjectSection } from './components';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -7,10 +7,11 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.hash) {
-      const element = document.querySelector(location.hash);
+    const hash = location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
   }, [location]);
@@ -21,7 +22,7 @@ function App() {
       <HeroSection />
       <ProjectSection />
     </>
-  );
+  )
 }
 
 export default App;
