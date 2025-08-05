@@ -19,11 +19,21 @@ function App() {
   return (
     <>
       <NavBar />
+      <div
+        id="home"
+        style={{
+          position: 'relative',
+          top: '-30px',   
+          height: '20px',
+          visibility: 'hidden',
+        }}
+      />
       <HeroSection />
       <ProjectSection />
       <SkillsSection />
     </>
   )
 }
+
 
 export default App;

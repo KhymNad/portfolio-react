@@ -1,13 +1,27 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareGithub, faSquareLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { motion } from 'framer-motion';
 import styles from './HeroSection.module.css';
 
 const HeroSection: React.FC = () => {
     return (
-        <div className={styles.main} id="home">
+        <motion.div
+            className={styles.main}
+            id="home"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.5 }}
+        >
             <div className={styles.content_container}>
-                <div className={styles.content_left}>
+                <motion.div
+                    className={styles.content_left}
+                    initial={{ opacity: 0, x: -40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+                    viewport={{ once: true }}
+                >
                     <h1>Khym Nad</h1>
                     <h2>Full-Stack Developer</h2>
                     <div className={styles.links_container}>
@@ -30,9 +44,15 @@ const HeroSection: React.FC = () => {
                         <FontAwesomeIcon icon={faSquareLinkedin} />
                         </a>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className={styles.content_right}>
+                <motion.div
+                    className={styles.content_right}
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+                    viewport={{ once: true }}
+                >
                     <div className={styles.box}>
                         <div className={styles.content}>
                             <p>
@@ -41,9 +61,9 @@ const HeroSection: React.FC = () => {
                             </p>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

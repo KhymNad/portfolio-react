@@ -54,9 +54,20 @@ const SkillsSection = () => {
                     <h3 className={styles.category_title}>Languages & Frameworks</h3>
                     <div className={styles.skill_grid}>
                         {languages.map((skill, index) => (
-                            <div key={index} className={styles.skill_card}>
-                            {skill}
-                            </div>
+                            <motion.div
+                                key={index}
+                                className={styles.skill_card}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{
+                                duration: 0.4,
+                                ease: 'easeOut',
+                                delay: index * 0.05,
+                                }}
+                                viewport={{ once: true }}
+                            >
+                                {skill}
+                            </motion.div>
                         ))}
                     </div>
                 </div>
@@ -65,9 +76,20 @@ const SkillsSection = () => {
                     <h3 className={styles.category_title}>Tools & Platforms</h3>
                     <div className={styles.skill_grid}>
                         {tools.map((skill, index) => (
-                            <div key={index} className={styles.skill_card}>
-                            {skill}
-                            </div>
+                            <motion.div
+                                key={index}
+                                className={styles.skill_card}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{
+                                duration: 0.4,
+                                ease: 'easeOut',
+                                delay: index * 0.05,
+                                }}
+                                viewport={{ once: true }}
+                            >
+                                {skill}
+                            </motion.div>
                         ))}
                     </div>
                 </div>

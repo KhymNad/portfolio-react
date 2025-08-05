@@ -15,7 +15,7 @@ const projects = [
     },
     {
         title: 'Decentralized Social Network',
-        description: 'A blockchain-based platform enabling secure and censorship-resistant communication between users.',
+        description: 'A blockchain-based platform enabling secure and censorship-resistant communication between users and executives.',
         image: '../../images/projects/resume-matcher-thumb.png',
         liveDemoLink: 'https://your-social-demo.com',
         detailsLink: 'https://github.com/your-repo/decentralized-social',
@@ -96,11 +96,25 @@ const ProjectSection: React.FC = () => {
                         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
                     />
                 </div>
-                <div className={styles.project_grid}>
+                <motion.div
+                    className={styles.project_grid}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                >
                     {projects.map((project, index) => (
-                    <ProjectCard key={index} {...project} />
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                        >
+                            <ProjectCard {...project} />
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </motion.section>
     );
