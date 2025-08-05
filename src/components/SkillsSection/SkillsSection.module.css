@@ -1,0 +1,120 @@
+.skills_section {
+    padding: 4rem 2rem;
+    background-color: #0B0B0B;
+    color: white;
+}
+
+.project_container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.section_title {
+    margin-bottom: 2rem;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;;
+}
+
+.underline {
+    height: 4px;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+.category {
+    margin-top: 2.5rem;
+}
+
+.category_title {
+    font-size: 1.25rem;
+    border-left: 3px solid #fff;
+    padding-left: 0.75rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.skill_grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* exactly 7 per row */
+    gap: 1rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .skill_grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .skill_grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .skill_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.skill_card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    font-size: 0.8rem;
+    text-align: center;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    transform: translateZ(0); /* fixes blur artifact in some browsers */
+}
+
+.skill_card:hover {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.2), 0 0 20px rgba(90, 240, 247, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    filter: brightness(1.1);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .section_title {
+        font-size: 2rem;
+    }
+
+    .skill_grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .skill_card {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.7rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .section_title {
+        font-size: 1.75rem;
+    }
+
+    .skill_card {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.6rem;
+    }
+}

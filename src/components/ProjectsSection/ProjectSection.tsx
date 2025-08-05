@@ -75,7 +75,15 @@ const ProjectSection: React.FC = () => {
     }, []);
 
     return (
-        <section className={styles.project_section} id="projects" ref={sectionRef}>
+        <motion.section
+            className={styles.project_section}
+            id="projects"
+            ref={sectionRef}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.3 }}
+        >
             <div className={styles.project_container}>
                 <div className={styles.section_title}>
                     <h2 className={styles.title} ref={titleRef}>
@@ -89,12 +97,12 @@ const ProjectSection: React.FC = () => {
                     />
                 </div>
                 <div className={styles.project_grid}>
-                {projects.map((project, index) => (
+                    {projects.map((project, index) => (
                     <ProjectCard key={index} {...project} />
-                ))}
+                    ))}
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 
