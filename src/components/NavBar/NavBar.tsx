@@ -11,31 +11,35 @@ const navItems = [
 ];
 
 const NavBar: React.FC = () => {
-    const [activeSection, setActiveSection] = useState('home');
+    const [activeSection, setActiveSection] = useState('');
     const location = useLocation();
 
     useEffect(() => {
-        // Function to update active section based on scroll
-        const handleScroll = () => {
-        const scrollPosition = window.scrollY + window.innerHeight / 3; // a bit lower than top
+        const isHomepage = location.pathname === '/' || location.pathname === '/#';
 
-        let current = 'home'; // default fallback
-
-        for (const item of navItems) {
-            const section = document.getElementById(item.target);
-            if (section) {
-            const sectionTop = section.offsetTop;
-            if (scrollPosition >= sectionTop) {
-                current = item.target;
-            }
-            }
+        if (!isHomepage) {
+            setActiveSection('');
+            return;
         }
-        setActiveSection(current);
+
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + window.innerHeight / 3;
+            let current = 'home';
+
+            for (const item of navItems) {
+                const section = document.getElementById(item.target);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    if (scrollPosition >= sectionTop) {
+                        current = item.target;
+                    }
+                }
+            }
+
+            setActiveSection(current);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-
-        // Call once on mount to set initial active
         handleScroll();
 
         return () => window.removeEventListener('scroll', handleScroll);
@@ -51,7 +55,7 @@ const NavBar: React.FC = () => {
                 className={`${styles.nav_item} ${
                     activeSection === item.target ? styles.active : ''
                 }`}
-                to={`#${item.target}`}
+                to={`/#${item.target}`}
                 >
                 {item.label}
                 </Link>
