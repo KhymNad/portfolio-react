@@ -1,0 +1,23 @@
+.footer {
+    background-color: #0B0B0B;
+    color: #ffffff;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: left;
+    border-top: 1px solid #1a1a1a;
+}
+
+.footer_content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+}
+
+.name {
+    margin-bottom: 0.5rem;
+    margin-left: 4rem;
+}

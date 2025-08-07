@@ -1,5 +1,5 @@
 import './App.css'
-import { NavBar, HeroSection, ProjectSection, SkillsSection, EducationSection } from './components';
+import { NavBar, HeroSection, ProjectSection, SkillsSection, EducationSection, ContactSection, Footer } from './components';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -31,7 +31,9 @@ function App() {
       <HeroSection />
       <ProjectSection />
       <SkillsSection />
-      < EducationSection />
+      <EducationSection />
+      <ContactSection />
+      <Footer />
     </>
   )
 }
