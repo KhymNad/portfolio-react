@@ -43,7 +43,7 @@
 .main_content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-end;
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 2rem;
@@ -51,7 +51,7 @@
 
 .content_left {
     flex: 1;
-    max-width: 400px;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -121,8 +121,8 @@
 }
 
 .resume_image {
-    width: 300px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
     height: auto;
     border-radius: 8px;
     cursor: pointer;
