@@ -5,59 +5,59 @@ import ProjectCard from './ProjectCard';
 
 const projects = [
     {
+        title: 'CABOA Official Website',
+        description: 'Responsive site for Central Alberta Basketball Officials built with React and Firebase. Features animated routing, clean layout, and fast performance with intuitive navigation.',
+        image: '../../images/projects/CABOA_preview.png',
+        liveDemoLink: 'https://caboa.ca/',
+        detailsLink: 'https://github.com/KhymNad/CABOA',
+        tags: ['React', 'JavaScript', 'Firebase', 'Framer Motion', 'JavaScript', 'React Router', 'HTML/CSS'],
+        slug: 'caboa-website'
+    },
+    {
         title: 'AI-Powered Resume Matcher',
-        description: 'Built a full-stack app to extract keywords from resumes and match them to job descriptions using OpenAI embeddings.',
+        description: 'Smart resume matcher using React, ASP.NET Core, and Python. Extracts keywords with Hugging Face NLP and matches to Adzuna jobs. Includes PDF parsing and a clean, responsive UI.',
         image: '../../images/projects/resume-matcher-thumb.png',
-        liveDemoLink: 'https://your-resume-demo-link.com',
+        liveDemoLink: 'https://resume-matcher-client.vercel.app/',
         detailsLink: 'https://github.com/your-repo/resume-matcher',
-        tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0', 'extra1', 'easy2'],
+        tags: ['ASP.NET Core', 'Python', 'HuggingFace', 'Natural Language Processing', 'C#', 'JavaScript', 'React', 'Vite', 'Vercel', 'Render', 'FramerMotion', 'PDF Plumber', 'Adzuna API'],
         slug: 'resume-matcher'
     },
     {
+        title: 'Neuroscience Hackathon App',
+        description: 'React Native app from natHACKS 2024 that analyzes brainwave data and predicts compatibility in real time, integrating Python backends and live data visualization features.',
+        image: '../../images/projects/neuromance-thumb.jpg',
+        liveDemoLink: 'https://devpost.com/software/neuromance-pbg8iw',
+        detailsLink: 'https://github.com/orgs/natHACKS-2024-idk/repositories',
+        tags: ['React', 'Node.js', 'Python', 'JavaScript', 'Hackathon', 'EEG', 'HTML/CSS'],
+        slug: 'neuroscience-hackathon'
+    },
+    {
+        title: 'Personal Portfolio',
+        description: 'Responsive portfolio built with TypeScript, React, and Vite. Showcases projects, skills, and education with smooth Framer Motion animations and a sleek, modern design.',
+        image: '../../images/projects/portfolio-react.png',
+        liveDemoLink: 'https://khymnad.github.io/Portfolio/',
+        detailsLink: 'https://github.com/KhymNad/portfolio-react',
+        tags: ['TypeScript', 'React', 'Vite', 'Framer Motion', 'HTML', 'CSS', 'GitHub Pages'],
+        slug: 'personal-portfolio'
+    },    
+    {
         title: 'Decentralized Social Network',
-        description: 'A blockchain-based platform enabling secure and censorship-resistant communication between users and executives.',
-        image: '../../images/projects/resume-matcher-thumb.png',
+        description: 'Decentralized platform built with Django and REST APIs, enabling secure cross-node communication with PostgreSQL and custom auth in a scalable, censorship-resistant ecosystem.',
+        image: '../../images/projects/social-thumb.jpg',
         liveDemoLink: 'https://your-social-demo.com',
-        detailsLink: 'https://github.com/your-repo/decentralized-social',
-        tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
+        detailsLink: 'https://github.com/KhymNad/decentralized_social_network?tab=readme-ov-file',
+        tags: ['Django', 'PostgreSQL', 'REST API', 'JavaScript', 'Heroku', 'Python', 'HTML/CSS'],
         slug: 'decentralized-social'
     },
     {
-        title: 'Neuroscience Hackathon App',
-        description: 'A React Native app designed during a neuroscience hackathon to track real-time stimuli responses and visualize brainwave data.',
-        image: '../../images/projects/resume-matcher-thumb.png',
-        liveDemoLink: 'https://your-hackathon-demo.com',
-        detailsLink: 'https://github.com/your-repo/neuro-hackathon-app',
-        tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
-        slug: 'neuroscience-hackathon'
-    },
-    {
-        title: 'Neuroscience Hackathon App',
-        description: 'A React Native app designed during a neuroscience hackathon to track real-time stimuli responses and visualize brainwave data.',
-        image: '../../images/projects/resume-matcher-thumb.png',
-        liveDemoLink: 'https://your-hackathon-demo.com',
-        detailsLink: 'https://github.com/your-repo/neuro-hackathon-app',
-        tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
-        slug: 'neuroscience-hackathon'
-    },
-    {
-        title: 'Neuroscience Hackathon App',
-        description: 'A React Native app designed during a neuroscience hackathon to track real-time stimuli responses and visualize brainwave data.',
-        image: '../../images/projects/resume-matcher-thumb.png',
-        liveDemoLink: 'https://your-hackathon-demo.com',
-        detailsLink: 'https://github.com/your-repo/neuro-hackathon-app',
-        tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
-        slug: 'neuroscience-hackathon'
-    },
-    {
-        title: 'Neuroscience Hackathon App',
-        description: 'A React Native app designed during a neuroscience hackathon to track real-time stimuli responses and visualize brainwave data.',
-        image: '../../images/projects/resume-matcher-thumb.png',
-        liveDemoLink: 'https://your-hackathon-demo.com',
-        detailsLink: 'https://github.com/your-repo/neuro-hackathon-app',
-        tags: ['React', 'Django', 'OpenAI API', 'PostgreSQL', 'TypeScript', 'Tailwind', 'Auth0'],
-        slug: 'neuroscience-hackathon'
-    },
+        title: 'Android Event Scheduler',
+        description: 'Android app developed in Java for organizing events and QR-based check-ins, backed by Firebase Authentication and Firestore for real-time data syncing and secure access.',
+        image: '../../images/projects/android-scheduler-thumb2.jpg',
+        liveDemoLink: '',
+        detailsLink: 'https://github.com/CMPUT301W24T27/NoStack',
+        tags: ['Java', 'Firebase', 'XML', 'Firestore', 'Android Studio', 'Gradle'],
+        slug: 'android-event-scheduler'
+    }
 ];
 
 const ProjectSection: React.FC = () => {

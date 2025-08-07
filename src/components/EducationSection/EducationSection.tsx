@@ -6,7 +6,6 @@ const EducationSection: React.FC = () => {
     const [activeTab, setActiveTab] = useState<'education' | 'certifications'>('education');
     const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
 
-    // For zoom modal
     const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
     const educationRef = useRef<HTMLDivElement>(null);
@@ -26,8 +25,14 @@ const EducationSection: React.FC = () => {
         }
     }, [activeTab]);
 
-    // Dummy certificate images array (to map on)
-    const certificates = Array(6).fill('../../images/certificates/boardInfinity_FullStackDeveloper.png');
+    const certificates = [
+        '../../images/certificates/board_infinity/boardInfinity_FullStackDeveloper.png',
+        '../../images/certificates/board_infinity/boardInfinity_backEndDevelopment_fullStack.png',
+        '../../images/certificates/board_infinity/boardInfinity_frontendDevelopment_react.png',
+        '../../images/certificates/microsoft/microsoft_.NetBackEndDevelopment.png',
+        '../../images/certificates/microsoft/microsoft_databaseIntegrationAndManagement.png',
+        '../../images/certificates/microsoft/microsoft_foundations_fullStack.png'
+    ];
 
     const openZoom = (imgSrc: string) => {
         setZoomedImage(imgSrc);
@@ -98,7 +103,7 @@ const EducationSection: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 whileHover={{ scale: 1.02, y: -3 }}
-                                transition={{ duration: 0.15, ease: 'easeInOut' }} // faster and smoother
+                                transition={{ duration: 0.15, ease: 'easeInOut' }} 
                                 viewport={{ once: true }}
                                 onClick={() => openZoom(imgSrc)}
                             >
@@ -143,7 +148,7 @@ const EducationSection: React.FC = () => {
                                 borderRadius: 12,
                                 boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
                             }}
-                            onClick={e => e.stopPropagation()} // prevent closing modal on image click
+                            onClick={e => e.stopPropagation()}
                         />
                     </motion.div>
                 )}

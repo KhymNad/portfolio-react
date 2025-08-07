@@ -3,7 +3,8 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import styles from './ContactSection.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faSquareLinkedin, faSquareGithub } from '@fortawesome/free-brands-svg-icons';
+import resumePdf from '../../assets/Khym_Nad_Full_Stack_Developer_Resume.pdf';
 
 const contactItems = [
     {
@@ -12,19 +13,19 @@ const contactItems = [
         link: 'mailto:khymnad@gmail.com',
     },
     {
-        icon: faLinkedin,
-        text: 'linkedin.com/in/khym-nad-76b262235',
+        icon: faSquareLinkedin,
+        text: 'LinkedIn',
         link: 'https://linkedin.com/in/khym-nad-76b262235',
     },
     {
-        icon: faGithub,
-        text: 'github.com/khymnad',
+        icon: faSquareGithub,
+        text: 'Github',
         link: 'https://github.com/khymnad',
     },
     {
         icon: faFileArrowDown,
         text: 'Download Resume',
-        link: '/resume.pdf',
+        link: resumePdf,
         download: true,
     },
 ];
