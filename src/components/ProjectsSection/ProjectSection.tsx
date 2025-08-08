@@ -9,7 +9,7 @@ const projects = [
         description: 'Responsive site for Central Alberta Basketball Officials built with React and Firebase. Features animated routing, clean layout, and fast performance with intuitive navigation.',
         image: '../../images/projects/CABOA_preview.png',
         liveDemoLink: 'https://caboa.ca/',
-        detailsLink: 'https://github.com/KhymNad/CABOA',
+        detailsLink: '',
         tags: ['React', 'JavaScript', 'Firebase', 'Framer Motion', 'JavaScript', 'React Router', 'HTML/CSS'],
         slug: 'caboa-website'
     },
@@ -18,7 +18,7 @@ const projects = [
         description: 'Smart resume matcher using React, ASP.NET Core, and Python. Extracts keywords with Hugging Face NLP and matches to Adzuna jobs. Includes PDF parsing and a clean, responsive UI.',
         image: '../../images/projects/resume-matcher-thumb.png',
         liveDemoLink: 'https://resume-matcher-client.vercel.app/',
-        detailsLink: 'https://github.com/your-repo/resume-matcher',
+        detailsLink: '',
         tags: ['ASP.NET Core', 'Python', 'HuggingFace', 'Natural Language Processing', 'C#', 'JavaScript', 'React', 'Vite', 'Vercel', 'Render', 'FramerMotion', 'PDF Plumber', 'Adzuna API'],
         slug: 'resume-matcher'
     },
@@ -28,6 +28,7 @@ const projects = [
         image: '../../images/projects/neuromance-thumb.jpg',
         liveDemoLink: '',
         detailsLink: 'https://github.com/orgs/natHACKS-2024-idk/repositories',
+        devpostLink: 'https://devpost.com/software/neuromance-pbg8iw',
         tags: ['React', 'Node.js', 'Python', 'JavaScript', 'Hackathon', 'EEG', 'HTML/CSS'],
         slug: 'neuroscience-hackathon',
         isGithubOnly: true,
@@ -38,7 +39,7 @@ const projects = [
         description: 'Responsive portfolio built with TypeScript, React, and Vite. Showcases projects, skills, and education with smooth Framer Motion animations and a sleek, modern design.',
         image: '../../images/projects/portfolio-react.png',
         liveDemoLink: 'https://khymnad.github.io/Portfolio/',
-        detailsLink: 'https://github.com/KhymNad/portfolio-react',
+        detailsLink: '',
         tags: ['TypeScript', 'React', 'Vite', 'Framer Motion', 'HTML', 'CSS', 'GitHub Pages'],
         slug: 'personal-portfolio'
     },    

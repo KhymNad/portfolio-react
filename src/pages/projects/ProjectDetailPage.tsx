@@ -9,8 +9,10 @@ type Project = {
   image: string;
   tags: string[];
   features: string[];
-  liveDemoLink: string;
-  githubLink: string;
+  liveDemoLink?: string;
+  githubLink?: string;
+  githubLinks?: { label: string; url: string }[];
+  devpostLink?: string;  
 };
 
 const projectData: Record<string, Project> = {
@@ -30,7 +32,7 @@ const projectData: Record<string, Project> = {
 
   'resume-matcher': {
     title: 'AI-Powered Resume Matcher',
-    description: `This cutting-edge application streamlines the job search process by intelligently matching user resumes to relevant job listings. Utilizing React for a responsive and interactive front end, and ASP.NET Core with Python powering the backend, it extracts key skills and experience from PDF resumes using Hugging Face NLP models. It then cross-references those skills with live job postings from the Adzuna API, offering users precise and personalized job recommendations. The platform handles PDF parsing, keyword extraction, and ranking with an emphasis on speed and accuracy.`,
+    description: `This cutting-edge application streamlines the job search process by intelligently matching user resumes to relevant job listings. Utilizing React for a responsive and interactive front end, and ASP.NET Core with Python powering the backend, it extracts key skills and experience from PDF resumes using Hugging Face NLP models. It then cross-references those skills with live job postings from the Adzuna API, offering users precise and personalized job recommendations.`,
     image: '/images/projects/resume-matcher-thumb.png',
     tags: ['ASP.NET Core', 'Python', 'HuggingFace', 'NLP', 'C#', 'JavaScript', 'React', 'Vite', 'Vercel', 'Render', 'Framer Motion', 'PDF Plumber', 'Adzuna API'],
     features: [
@@ -39,7 +41,10 @@ const projectData: Record<string, Project> = {
       'Sophisticated NLP models powered by Hugging Face',
     ],
     liveDemoLink: 'https://resume-matcher-client.vercel.app/',
-    githubLink: 'https://github.com/your-repo/resume-matcher'
+        githubLinks: [
+      { label: 'Frontend Repo', url: 'https://github.com/KhymNad/resume-matcher-client' },
+      { label: 'Backend Repo', url: 'https://github.com/KhymNad/resume-matcher-api' },
+    ],
   },
 
   'neuroscience-hackathon': {
@@ -52,7 +57,7 @@ const projectData: Record<string, Project> = {
       'Python backend for brainwave data analysis and prediction',
       'Live data streaming and interactive UI components',
     ],
-    liveDemoLink: 'https://devpost.com/software/neuromance-pbg8iw',
+    devpostLink: 'https://devpost.com/software/neuromance-pbg8iw',
     githubLink: 'https://github.com/orgs/natHACKS-2024-idk/repositories'
   },
 
@@ -80,7 +85,6 @@ const projectData: Record<string, Project> = {
       'Robust data management with PostgreSQL',
       'Scalable deployment on Heroku with RESTful API design',
     ],
-    liveDemoLink: 'https://your-social-demo.com',
     githubLink: 'https://github.com/KhymNad/decentralized_social_network?tab=readme-ov-file'
   },
 
@@ -94,7 +98,6 @@ const projectData: Record<string, Project> = {
       'QR code generation and scanning for check-ins',
       'Real-time attendee tracking with Firestore',
     ],
-    liveDemoLink: '',
     githubLink: 'https://github.com/CMPUT301W24T27/NoStack'
   }
 };
