@@ -18,8 +18,9 @@
 }
 
 .image_container {
+    position: relative;
     width: 95%;
-    height: 180px;
+    height: 160px; 
     padding: 0 1rem;
     padding-top: 1rem;
     overflow: hidden;
@@ -31,10 +32,72 @@
 .image {
     width: 100%;
     border-radius: 2px;
-    height: 200px;
-    max-width: 400px;
+    height: 100%;
+    max-width: 600px;
     object-fit: cover;
+    object-position: center;
     background-color: #2a2a2a;
+    margin-top: 0;
+}
+
+/* For large desktops */
+@media (min-width: 1600px) {
+    .image_container {
+        height: 280px; 
+    }
+    .image {
+        max-width: 700px;
+    }
+}
+
+/* For desktops and laptops */
+@media (min-width: 1200px) and (max-width: 1599px) {
+    .image_container {
+        height: 250px; 
+    }
+    .image {
+        max-width: 600px;
+    }
+}
+
+/* For tablets and medium screens */
+@media (max-width: 1024px) {
+    .image_container {
+        height: 200px; 
+    }
+    .image {
+        max-width: 400px;
+    }
+}
+
+/* For small tablets and large phones */
+@media (max-width: 768px) {
+    .image_container {
+        height: 160px; 
+    }
+    .image {
+        max-width: 320px;
+    }
+}
+
+/* For phones */
+@media (max-width: 480px) {
+    .image_container {
+        height: 120px; 
+    }
+    .image {
+        max-width: 280px;
+    }
+}
+
+/* For very small phones */
+@media (max-width: 360px) {
+    .image_container {
+        height: 100px; 
+    }
+    .image {
+        max-width: 220px;
+    }
 }
 
 .content {
@@ -132,4 +195,20 @@
 
 .btnIcon {
     font-size: 1rem;
+}
+
+.badge {
+    position: absolute;
+    margin: 1rem;
+    top: 12px;
+    left: 12px; 
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); 
+    color: white; 
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }

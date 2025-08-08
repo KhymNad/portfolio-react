@@ -26,10 +26,12 @@ const projects = [
         title: 'Neuroscience Hackathon App',
         description: 'React Native app from natHACKS 2024 that analyzes brainwave data and predicts compatibility in real time, integrating Python backends and live data visualization features.',
         image: '../../images/projects/neuromance-thumb.jpg',
-        liveDemoLink: 'https://devpost.com/software/neuromance-pbg8iw',
+        liveDemoLink: '',
         detailsLink: 'https://github.com/orgs/natHACKS-2024-idk/repositories',
         tags: ['React', 'Node.js', 'Python', 'JavaScript', 'Hackathon', 'EEG', 'HTML/CSS'],
-        slug: 'neuroscience-hackathon'
+        slug: 'neuroscience-hackathon',
+        isGithubOnly: true,
+        badge: '2nd Place'
     },
     {
         title: 'Personal Portfolio',
@@ -44,10 +46,11 @@ const projects = [
         title: 'Decentralized Social Network',
         description: 'Decentralized platform built with Django and REST APIs, enabling secure cross-node communication with PostgreSQL and custom auth in a scalable, censorship-resistant ecosystem.',
         image: '../../images/projects/social-thumb.jpg',
-        liveDemoLink: 'https://your-social-demo.com',
+        liveDemoLink: '',
         detailsLink: 'https://github.com/KhymNad/decentralized_social_network?tab=readme-ov-file',
         tags: ['Django', 'PostgreSQL', 'REST API', 'JavaScript', 'Heroku', 'Python', 'HTML/CSS'],
-        slug: 'decentralized-social'
+        slug: 'decentralized-social',
+        isGithubOnly: true
     },
     {
         title: 'Android Event Scheduler',
@@ -56,7 +59,8 @@ const projects = [
         liveDemoLink: '',
         detailsLink: 'https://github.com/CMPUT301W24T27/NoStack',
         tags: ['Java', 'Firebase', 'XML', 'Firestore', 'Android Studio', 'Gradle'],
-        slug: 'android-event-scheduler'
+        slug: 'android-event-scheduler',
+        isGithubOnly: true
     }
 ];
 

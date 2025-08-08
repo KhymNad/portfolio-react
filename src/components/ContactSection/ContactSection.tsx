@@ -10,7 +10,7 @@ const contactItems = [
     {
         icon: faEnvelope,
         text: 'khymnad@gmail.com',
-        link: 'mailto:khymnad@gmail.com',
+        link: 'https://mail.google.com/mail/?view=cm&fs=1&to=khymnad@gmail.com',
     },
     {
         icon: faSquareLinkedin,
