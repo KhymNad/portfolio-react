@@ -9,9 +9,14 @@ function App() {
   useEffect(() => {
     const hash = location.hash;
     if (hash) {
-      const element = document.querySelector(hash);
+      const element = document.querySelector(hash) as HTMLElement;
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const navHeight = document.querySelector('nav')?.offsetHeight || 0;
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementPosition - navHeight,
+          behavior: 'smooth'
+        });
       }
     }
   }, [location]);
@@ -19,15 +24,6 @@ function App() {
   return (
     <>
       <NavBar />
-      {/* <div
-        id="home"
-        style={{
-          position: 'relative',
-          top: '-30px',   
-          height: '20px',
-          visibility: 'hidden',
-        }}
-      /> */}
       <HeroSection />
       <ProjectSection />
       <SkillsSection />

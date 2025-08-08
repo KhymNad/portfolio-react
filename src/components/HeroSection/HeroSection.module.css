@@ -30,7 +30,7 @@
 @media (min-width: 1600px) {
     .content_container {
         padding: 14rem 16rem;
-        gap:4rem;
+        gap: 4rem;
         max-width: 1500px;
     }
 }
@@ -93,12 +93,12 @@
 .link_icon {
     color: #ffffff;
     font-size: 3rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.link_icon:hover {
-    color: #cc00ff;
-    transform: scale(1.15);
+    border-radius: 12px;
+    border: 1px solid transparent; 
+    padding: 0.25rem;
+    box-sizing: border-box; 
+    outline: none; 
+    transition: background-color 0.1s ease, box-shadow 0.1s ease;
 }
 
 .content_right {

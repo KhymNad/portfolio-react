@@ -79,16 +79,16 @@
     max-width: 100%;
     position: relative;
     z-index: 1;
-    height: 320px;          /* fixed consistent height */
+    height: 320px;         
     overflow: hidden;
     border-radius: 10px;
 }
 
 .image {
     width: 100%;
-    height: 100%;           /* fill wrapper height */
+    height: 100%;           
     border-radius: 10px;
-    object-fit: cover;      /* cover to crop and fill */
+    object-fit: cover;      
     object-position: center;
 }
 
@@ -161,8 +161,8 @@
 .tagList {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    row-gap: 1rem;        /* keep vertical gap as before */
-    column-gap: 3rem;     /* increase horizontal gap */
+    row-gap: 1rem;        
+    column-gap: 3rem;     
     margin-bottom: 2rem;
 }
 
@@ -178,7 +178,7 @@
     .tagList {
         grid-template-columns: 1fr;
         row-gap: 1rem;
-        column-gap: 0; /* no horizontal gap when single column */
+        column-gap: 0;
     }
 }
 
