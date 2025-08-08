@@ -1,0 +1,33 @@
+.splash_container {
+    position: fixed;
+    inset: 0;
+    background: #0B0B0B; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF; 
+    font-family: 'Inter', sans-serif;
+    user-select: none;
+    z-index: 9999;
+}
+
+.splash_text {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.splash_subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: #AAAAAA; 
+    margin: 0;
+    text-transform: uppercase;
+    font-style: normal;
+}

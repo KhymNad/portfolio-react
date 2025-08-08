@@ -1,38 +1,89 @@
 import './App.css'
-import { NavBar, HeroSection, ProjectSection, SkillsSection, EducationSection, ContactSection, Footer } from './components';
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { 
+  NavBar, 
+  HeroSection, 
+  ProjectSection, 
+  SkillsSection, 
+  EducationSection, 
+  ContactSection, 
+  Footer, 
+  SplashScreen 
+} from './components';
+import { useEffect, useState, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate();
 
+  const [isSplashVisible, setIsSplashVisible] = useState(false);
+  const hasRedirected = useRef(false);
+  const splashShown = useRef(false);
+
+  // Run redirect only once on initial mount if URL is not clean "/"
   useEffect(() => {
-    const hash = location.hash;
-    if (hash) {
-      const element = document.querySelector(hash) as HTMLElement;
-      if (element) {
-        const navHeight = document.querySelector('nav')?.offsetHeight || 0;
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({
-          top: elementPosition - navHeight,
-          behavior: 'smooth'
-        });
+    if (!hasRedirected.current) {
+      if (location.pathname !== "/" || location.hash !== "") {
+        navigate("/", { replace: true });
+      }
+      hasRedirected.current = true;
+    }
+  }, [location.pathname, location.hash, navigate]);
+
+  // Show splash only once on initial mount if path is clean "/"
+  useEffect(() => {
+    if (!splashShown.current) {
+      if (location.pathname === "/" && location.hash === "") {
+        setIsSplashVisible(true);
+        splashShown.current = true;
       }
     }
-  }, [location]);
+  }, []);
+
+  // Scroll to hash after splash is hidden
+  useEffect(() => {
+    if (!isSplashVisible) {
+      const hash = location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          const navHeight = document.querySelector('nav')?.offsetHeight || 0;
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: elementPosition - navHeight,
+            behavior: 'smooth',
+          });
+        }
+      }
+    }
+  }, [location, isSplashVisible]);
 
   return (
     <>
-      <NavBar />
-      <HeroSection />
-      <ProjectSection />
-      <SkillsSection />
-      <EducationSection />
-      <ContactSection />
-      <Footer />
-    </>
-  )
-}
+      <AnimatePresence>
+        {isSplashVisible && (
+          <SplashScreen
+            onFinish={() => {
+              setIsSplashVisible(false);
+            }}
+          />
+        )}
+      </AnimatePresence>
 
+      {!isSplashVisible && (
+        <>
+          <NavBar />
+          <HeroSection />
+          <ProjectSection />
+          <SkillsSection />
+          <EducationSection />
+          <ContactSection />
+          <Footer />
+        </>
+      )}
+    </>
+  );
+}
 
 export default App;
