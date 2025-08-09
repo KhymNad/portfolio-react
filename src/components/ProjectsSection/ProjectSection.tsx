@@ -38,7 +38,7 @@ const projects = [
         title: 'Personal Portfolio',
         description: 'Responsive portfolio built with TypeScript, React, and Vite. Showcases projects, skills, and education with smooth Framer Motion animations and a sleek, modern design.',
         image: '../../images/projects/portfolio-react.png',
-        liveDemoLink: 'https://khymnad.github.io/Portfolio/',
+        liveDemoLink: 'https://portfolio-react-coral-beta.vercel.app/',
         detailsLink: '',
         tags: ['TypeScript', 'React', 'Vite', 'Framer Motion', 'HTML', 'CSS', 'GitHub Pages'],
         slug: 'personal-portfolio'

@@ -72,7 +72,7 @@ const projectData: Record<string, Project> = {
       'SEO-friendly with semantic HTML structure',
       'Organized sections for projects, education, and certifications',
     ],
-    liveDemoLink: 'https://khymnad.github.io/Portfolio/',
+    liveDemoLink: 'https://portfolio-react-coral-beta.vercel.app/',
     githubLink: 'https://github.com/KhymNad/portfolio-react'
   },
 

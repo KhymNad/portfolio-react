@@ -113,7 +113,7 @@
 .certification_item:hover {
     transform: translateY(-3px) scale(1.02);
     background: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 24px rgba(90, 240, 247, 0.3); /* subtle cyan-ish glow */
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3); 
 }
 
 .certification_item img {
