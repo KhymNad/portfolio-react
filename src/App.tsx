@@ -7,7 +7,8 @@ import {
   EducationSection, 
   ContactSection, 
   Footer, 
-  SplashScreen 
+  SplashScreen,
+  CustomCursor
 } from './components';
 import { useEffect, useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -61,6 +62,7 @@ function App() {
 
   return (
     <>
+      <CustomCursor />
       <AnimatePresence>
         {isSplashVisible && (
           <SplashScreen

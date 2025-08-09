@@ -6,4 +6,5 @@ export {default as SkillsSection} from './SkillsSection/SkillsSection';
 export {default as EducationSection} from './EducationSection/EducationSection';
 export {default as ContactSection} from './ContactSection/ContactSection';
 export {default as Footer} from './Footer/Footer';
-export {default as SplashScreen} from './SplashScreen/SplashScreen'
+export {default as SplashScreen} from './SplashScreen/SplashScreen';
+export {default as CustomCursor} from './CustomCursor/CustomCursor';

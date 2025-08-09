@@ -108,14 +108,14 @@ const ContactSection: React.FC = () => {
                                 <motion.img
                                     src="/images/resume/resume1.png"
                                     alt="Resume Page 1"
-                                    className={styles.resume_image}
+                                    className={`${styles.resume_image} clickable`}
                                     whileHover={{ scale: 1.05 }}
                                     onClick={() => setSelectedImage('/images/resume/resume1.png')}
                                 />
                                 <motion.img
                                     src="/images/resume/resume2.png"
                                     alt="Resume Page 2"
-                                    className={styles.resume_image}
+                                    className={`${styles.resume_image} clickable`}
                                     whileHover={{ scale: 1.05 }}
                                     onClick={() => setSelectedImage('/images/resume/resume2.png')}
                                 />
@@ -142,7 +142,7 @@ const ContactSection: React.FC = () => {
                             initial={{ scale: 0.8 }}
                             animate={{ scale: 1 }}
                             exit={{ scale: 0.8 }}
-                            onClick={(e) => e.stopPropagation()} // prevent close on image click
+                            onClick={(e) => e.stopPropagation()}
                         />
                     </motion.div>
                 )}

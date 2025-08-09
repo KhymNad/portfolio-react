@@ -6,6 +6,7 @@
     padding: 2rem 2rem;
     background-color: transparent;
     height: 30px;
+    cursor: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +35,7 @@
     position: relative;
     font-size: 1rem;
     color: #9e9e9e;
-    cursor: pointer;
+    cursor: none;
     transition: color 0.3s ease;
     padding-bottom: 0.25rem;
     text-decoration: none;
@@ -42,6 +43,7 @@
 
 .nav_item:hover {
     color: #ffffff;
+    cursor: none;
 }
 
 .nav_item::after {
@@ -49,6 +51,7 @@
     position: absolute;
     left: 0;
     bottom: -2px;
+    cursor: none;
     height: 2px;
     width: 0;
     background-color: #ffffff;
@@ -57,14 +60,17 @@
 
 .nav_item:hover::after {
     width: 100%;
+    cursor: none;
 }
 
 .nav_item.active {
     color: #ffffff;
+    cursor: none;
 }
 
 .nav_item.active::after {
     width: 100%;
+    cursor: none;
 }
 
 @media (max-width: 768px) {
@@ -84,5 +90,6 @@
     .nav_item {
         font-size: 0.95rem;
         text-decoration: none;
+        cursor: none;
     }
 }

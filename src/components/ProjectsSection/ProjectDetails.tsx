@@ -149,7 +149,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1, ease: 'easeOut', delay: 0.1 }}
                     >
-                        <div className={styles.imageWrapper} onClick={toggleZoom}>
+                        <div className={`${styles.imageWrapper} clickable`} onClick={toggleZoom}>
                             <motion.img
                                 src={image}
                                 alt={`${title} screenshot`}
@@ -181,7 +181,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                 {isZoomed && (
                     <motion.div
                         className={styles.zoomOverlay}
-                        onClick={toggleZoom}
+                        onClick={() => setIsZoomed(false)} // close on overlay click
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -194,6 +194,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                             animate={{ scale: 1 }}
                             exit={{ scale: 0.7 }}
                             transition={{ type: 'spring', stiffness: 300 }}
+                            onClick={(e) => e.stopPropagation()} // prevent overlay click
                         />
                     </motion.div>
                 )}

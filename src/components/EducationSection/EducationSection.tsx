@@ -56,14 +56,14 @@ const EducationSection: React.FC = () => {
                 <div className={styles.tabs}>
                     <div
                         ref={educationRef}
-                        className={`${styles.tab} ${activeTab === 'education' ? styles.active : ''}`}
+                        className={`${styles.tab} ${activeTab === 'education' ? styles.active : ''} clickable`}
                         onClick={() => setActiveTab('education')}
                     >
                         Education
                     </div>
                     <div
                         ref={certificationsRef}
-                        className={`${styles.tab} ${activeTab === 'certifications' ? styles.active : ''}`}
+                        className={`${styles.tab} ${activeTab === 'certifications' ? styles.active : ''} clickable`}
                         onClick={() => setActiveTab('certifications')}
                     >
                         Certifications
@@ -99,7 +99,7 @@ const EducationSection: React.FC = () => {
                             {certificates.map((imgSrc, idx) => (
                             <motion.div
                                 key={idx}
-                                className={styles.certification_item}
+                                className={`${styles.certification_item} clickable`}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 whileHover={{ scale: 1.02, y: -3 }}

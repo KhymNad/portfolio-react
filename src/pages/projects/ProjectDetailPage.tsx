@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import ProjectDetails from '../../components/ProjectsSection/ProjectDetails';
+import { CustomCursor } from '../../components';
 
 
 type Project = {
@@ -110,6 +111,7 @@ export default function ProjectPage() {
 
   return (
     <>
+      <CustomCursor />
       <NavBar />
       <div style={{ paddingTop: '6rem' }}>
         <ProjectDetails {...data} />
