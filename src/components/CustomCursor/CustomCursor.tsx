@@ -1,26 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import styles from './CustomCursor.module.css';
 
 const CustomCursor: React.FC = () => {
     const [position, setPosition] = useState({ x: -100, y: -100 });
     const [hovering, setHovering] = useState(false);
+    const [dotOffset, setDotOffset] = useState({ x: 0, y: 0 });
+    const lastPosition = useRef({ x: -100, y: -100 });
 
     useEffect(() => {
         const onMouseMove = (e: MouseEvent) => {
-        setPosition({ x: e.clientX, y: e.clientY });
+            const dx = e.clientX - lastPosition.current.x;
+            const dy = e.clientY - lastPosition.current.y;
+            lastPosition.current = { x: e.clientX, y: e.clientY };
+
+            // Normalize velocity so it’s never more than ~6px offset
+            const length = Math.sqrt(dx * dx + dy * dy) || 1;
+            const maxOffset = 6;
+            setDotOffset({
+                x: (dx / length) * maxOffset,
+                y: (dy / length) * maxOffset
+            });
+
+            setPosition({ x: e.clientX, y: e.clientY });
         };
 
         const onMouseOver = (e: MouseEvent) => {
-        const target = e.target as HTMLElement;
-        if (target.closest("a, button, .clickable, .certification_item")) {
-            setHovering(true);
-        }
+            const target = e.target as HTMLElement;
+            if (target.closest("a, button, .clickable, .certification_item")) {
+                setHovering(true);
+            }
         };
 
         const onMouseOut = (e: MouseEvent) => {
-        const target = e.target as HTMLElement;
-        if (target.closest("a, button, .clickable, .certification_item")) {
-            setHovering(false);
-        }
+            const target = e.target as HTMLElement;
+            if (target.closest("a, button, .clickable, .certification_item")) {
+                setHovering(false);
+            }
         };
 
         document.addEventListener("mousemove", onMouseMove);
@@ -28,32 +43,27 @@ const CustomCursor: React.FC = () => {
         document.addEventListener("mouseout", onMouseOut);
 
         return () => {
-        document.removeEventListener("mousemove", onMouseMove);
-        document.removeEventListener("mouseover", onMouseOver);
-        document.removeEventListener("mouseout", onMouseOut);
+            document.removeEventListener("mousemove", onMouseMove);
+            document.removeEventListener("mouseover", onMouseOver);
+            document.removeEventListener("mouseout", onMouseOut);
         };
     }, []);
 
     return (
         <div
-        style={{
-            position: "fixed",
-            top: position.y,
-            left: position.x,
-            pointerEvents: "none",
-            transform: "translate(-50%, -50%)",
-            transition:
-            "width 0.2s ease, height 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease",
-            width: hovering ? 30 : 60,
-            height: hovering ? 30 : 60,
-            borderRadius: "50%",
-            backgroundColor: hovering ? "rgba(255,255,255,0.9)" : "transparent",
-            border: "2px solid white",
-            boxShadow: hovering ? "0 0 8px 2px white" : "none",
-            zIndex: 9999,
-            mixBlendMode: "difference",
-        }}
-        />
+            className={`${styles.customCursor} ${hovering ? styles.hovering : ""}`}
+            style={{
+                top: `${position.y}px`,
+                left: `${position.x}px`,
+            }}
+        >
+            <div
+                className={styles.innerDot}
+                style={{
+                    transform: `translate(${dotOffset.x}px, ${dotOffset.y}px)`
+                }}
+            />
+        </div>
     );
 };
 

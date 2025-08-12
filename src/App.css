@@ -13,3 +13,11 @@
 body, button, a {
   cursor: none !important
 }
+
+html, body, * {
+  cursor: none !important;
+}
+
+*, *::before, *::after {
+  cursor: none !important;
+}

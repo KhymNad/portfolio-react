@@ -62,7 +62,8 @@ function App() {
 
   return (
     <>
-      <CustomCursor />
+      {!isSplashVisible && <CustomCursor />}
+
       <AnimatePresence>
         {isSplashVisible && (
           <SplashScreen

@@ -1,0 +1,35 @@
+.customCursor {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: transparent;
+  pointer-events: none;
+  z-index: 999999;
+  mix-blend-mode: difference;
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hovering {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 8px 2px white;
+}
+
+.innerDot {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.08s ease-out;
+}

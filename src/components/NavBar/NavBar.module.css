@@ -1,3 +1,10 @@
+.nav,
+.nav * ,
+.nav *::before,
+.nav *::after {
+    cursor: none !important;
+}
+
 .nav {
     position: fixed;
     top: 0;
@@ -6,19 +13,21 @@
     padding: 2rem 2rem;
     background-color: transparent;
     height: 30px;
-    cursor: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
     box-sizing: border-box;
     backdrop-filter: blur(6px);
+    min-height: 60px;
+    cursor: none !important;
 }
 
 .nav_left {
     padding-left: 2rem;
     font-size: 1.25rem;
     color: white;
+    cursor: none !important;
 }
 
 .nav_right {
@@ -27,23 +36,24 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    padding-right: 2rem;;
+    padding-right: 2rem;
     flex-wrap: wrap;
+    cursor: none !important;
 }
 
 .nav_item {
     position: relative;
     font-size: 1rem;
     color: #9e9e9e;
-    cursor: none;
     transition: color 0.3s ease;
     padding-bottom: 0.25rem;
     text-decoration: none;
+    cursor: none !important;
 }
 
 .nav_item:hover {
     color: #ffffff;
-    cursor: none;
+    cursor: none !important;
 }
 
 .nav_item::after {
@@ -51,26 +61,26 @@
     position: absolute;
     left: 0;
     bottom: -2px;
-    cursor: none;
     height: 2px;
     width: 0;
     background-color: #ffffff;
     transition: width 0.3s ease;
+    cursor: none !important;
 }
 
 .nav_item:hover::after {
     width: 100%;
-    cursor: none;
+    cursor: none !important;
 }
 
 .nav_item.active {
     color: #ffffff;
-    cursor: none;
+    cursor: none !important;
 }
 
 .nav_item.active::after {
     width: 100%;
-    cursor: none;
+    cursor: none !important;
 }
 
 @media (max-width: 768px) {
@@ -78,6 +88,7 @@
         flex-direction: column;
         align-items: flex-start;
         padding: 1rem;
+        cursor: none !important;
     }
 
     .nav_right {
@@ -85,11 +96,12 @@
         justify-content: flex-start;
         gap: 1rem;
         margin-top: 1rem;
+        cursor: none !important;
     }
 
     .nav_item {
         font-size: 0.95rem;
         text-decoration: none;
-        cursor: none;
+        cursor: none !important;
     }
 }
