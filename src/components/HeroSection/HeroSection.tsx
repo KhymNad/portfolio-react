@@ -50,7 +50,7 @@ const HeroSection: React.FC = () => {
 
                         {/* Animate LinkedIn button */}
                         <motion.a
-                            href="https://www.linkedin.com/in/khym-nad-76b262235/"
+                            href="https://www.linkedin.com/in/khymnad"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.link_icon}
