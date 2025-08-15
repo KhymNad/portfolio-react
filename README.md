@@ -86,6 +86,7 @@ npm run build
 
 📬 Contact
 If you would like to collaborate, you can reach me at:
+
 📧 khymnad@gmail.com,
 💼 [LinkedIn](https://www.linkedin.com/in/khym-nad-76b262235/),
 💼  [Github](https://github.com/KhymNad),
