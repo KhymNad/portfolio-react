@@ -1,69 +1,93 @@
-# React + TypeScript + Vite
+# 🚀 Personal Portfolio – Khym Nad
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, animated developer portfolio built with **React**, **TypeScript**, and **Framer Motion**.  
+Includes a smooth splash screen animation, scroll navigation, and sections for projects, skills, education, and contact.
 
-Currently, two official plugins are available:
+![Portfolio Preview](./public/images/projects/portfolio-react.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Visit My Portfolio
 
-## Expanding the ESLint configuration
+![LiveDemo](https://portfolio-react-coral-beta.vercel.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Splash Screen Animation** – Displays on every visit to `/` with smooth fade-out.
+- **Fully Responsive** – Mobile-first design that adapts to any screen size.
+- **Smooth Scroll Navigation** – Scrolls to sections without abrupt jumps.
+- **Modern UI/UX** – Powered by Framer Motion animations and clean typography.
+- **Sectioned Layout**:
+  - Hero / Introduction
+  - Projects Showcase
+  - Skills Overview
+  - Education Timeline
+  - Contact Form
+  - Footer with social links
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🛠 Tech Stack
+
+- **Frontend:** React 18, TypeScript, Vite
+- **Routing:** React Router DOM
+- **Animations:** Framer Motion
+- **Styling:** CSS Modules
+- **Build Tool:** Vite
+- **Deployment:** Vercel / Netlify (your choice)
+
+---
+
+## 📂 Project Structure
+
+```bash
+src/
+│
+├── components/ # Reusable UI components
+│ ├── NavBar.tsx
+│ ├── HeroSection.tsx
+│ ├── ProjectSection.tsx
+│ ├── SkillsSection.tsx
+│ ├── EducationSection.tsx
+│ ├── ContactSection.tsx
+│ ├── Footer.tsx
+│ └── SplashScreen.tsx
+│
+├── App.tsx # Main app layout and routing
+├── main.tsx # React DOM rendering
+└── index.css # Global styles
+```
+---
+
+## 🚦 Getting Started
+
+### 1️⃣ Clone the repo
+```bash
+git clone https://github.com/yourusername/portfolio.git
+cd portfolio
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 2️⃣ Install dependencies
+```bash
+npm install
 ```
+
+### 3️⃣ Start the development server
+```bash
+npm run dev
+```
+
+### 4️⃣ Build for production
+```bash
+npm run build
+```
+
+---
+
+📬 Contact
+If you would like to collaborate, you can reach me at:
+📧 khymnad@gmail.com
+💼 [LinkedIn](https://www.linkedin.com/in/khym-nad-76b262235/)
+💼  [Github](https://github.com/KhymNad)
+🌐 [Live Demo](https://portfolio-react-coral-beta.vercel.app/)
+
