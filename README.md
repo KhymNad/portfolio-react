@@ -1,13 +1,14 @@
-# 🚀 Personal Portfolio – Khym Nad
+# 💼 Personal Portfolio – Khym Nad
 
 A modern, animated developer portfolio built with **React**, **TypeScript**, and **Framer Motion**.  
 Includes a smooth splash screen animation, scroll navigation, and sections for projects, skills, education, and contact.
+---
 
 ![Portfolio Preview](./public/images/projects/portfolio-react.png)
 
 ## Visit My Portfolio
 
-![LiveDemo](https://portfolio-react-coral-beta.vercel.app/)
+# 🚀 [LiveDemo](https://portfolio-react-coral-beta.vercel.app/)
 
 ---
 
