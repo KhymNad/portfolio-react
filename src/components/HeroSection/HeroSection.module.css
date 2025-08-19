@@ -103,8 +103,9 @@
 }
 
 .content_right {
-    flex: 1;
-    min-width: 300px;
+    flex: 1.25;
+    min-width: 400px;
+    max-width: 900px;
     border-radius: 20px;
     backdrop-filter: blur(15px);
     position: relative;
@@ -118,7 +119,8 @@
 }
 
 .content {
-    font-size: xx-large;
+    font-size: 1.3rem;
+    line-height: 1.9;
     z-index: 1;
 }
 

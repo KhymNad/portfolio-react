@@ -83,8 +83,8 @@ const HeroSection: React.FC = () => {
                     <div className={styles.box}>
                         <div className={styles.content}>
                             <p>
-                                I am a Full-Stack Developer with a passion for creating dynamic and responsive web applications. 
-                                I specialize in both front-end and back-end development, ensuring seamless user experiences.
+                                I am a Full-Stack Developer with experience designing and building modern web applications.
+                                Specializing in creating efficient back-end systems and intuitive front-end interfaces for seamless user experiences.
                             </p>
                         </div>
                     </div>
