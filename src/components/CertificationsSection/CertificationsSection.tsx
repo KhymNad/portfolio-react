@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import styles from './CertificationsSection.module.css';
 
 const CertificationsSection: React.FC = () => {
     const [zoomedImage, setZoomedImage] = useState<string | null>(null);
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const sectionRef = useRef<HTMLElement>(null);
+    const [underlineWidth, setUnderlineWidth] = useState(0);
+
+    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+
+    useEffect(() => {
+        if (titleRef.current) {
+            const titleWidth = titleRef.current.offsetWidth;
+            setUnderlineWidth(titleWidth + 50);
+        }
+    }, []);
 
     const certificates = [
         '../../images/certificates/board_infinity/boardInfinity_FullStackDeveloper.png',
@@ -21,18 +33,30 @@ const CertificationsSection: React.FC = () => {
         <motion.section
             className={styles.certificationsSection}
             id="certifications"
+            ref={sectionRef}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true, amount: 0.3 }}
         >
             <div className={styles.project_container}>
-                <h2>Certifications</h2>
+                <div className={styles.section_title}>
+                    <h2 className={styles.title} ref={titleRef}>
+                        Certifications
+                    </h2>
+                    <motion.div
+                        className={styles.underline}
+                        initial={{ width: 0 }}
+                        animate={{ width: isInView ? underlineWidth : 0 }}
+                        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
+                    />
+                </div>
+
                 <motion.div
                     className={styles.certification_grid}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
                     {certificates.map((imgSrc, idx) => (
@@ -42,7 +66,7 @@ const CertificationsSection: React.FC = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             whileHover={{ scale: 1.02, y: -3 }}
-                            transition={{ duration: 0.15, ease: 'easeInOut' }} 
+                            transition={{ duration: 0.15, ease: 'easeInOut' }}
                             viewport={{ once: true }}
                             onClick={() => openZoom(imgSrc)}
                         >
@@ -52,7 +76,6 @@ const CertificationsSection: React.FC = () => {
                 </motion.div>
             </div>
 
-            {/* Zoom modal */}
             <AnimatePresence>
                 {zoomedImage && (
                     <motion.div
