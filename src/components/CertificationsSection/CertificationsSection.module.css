@@ -1,0 +1,37 @@
+/* Certifications.module.css */
+
+.certification_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* exactly 3 columns */
+    gap: 1rem;
+    background-color: #0B0B0B;
+    color: white;
+}
+
+.certification_item {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-out, background 0.3s ease-out, box-shadow 0.3s ease-out;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0;
+    cursor: none;
+}
+
+.certification_item:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3); 
+}
+
+.certification_item img {
+    width: 100%;
+    border-radius: 1px;
+    object-fit: cover;
+}

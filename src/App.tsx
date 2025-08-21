@@ -5,6 +5,7 @@ import {
   ProjectSection, 
   SkillsSection, 
   EducationSection, 
+  Certifications,
   ContactSection, 
   Footer, 
   SplashScreen,
@@ -81,6 +82,7 @@ function App() {
           <ProjectSection />
           <SkillsSection />
           <EducationSection />
+          <Certifications />
           <ContactSection />
           <Footer />
         </>
