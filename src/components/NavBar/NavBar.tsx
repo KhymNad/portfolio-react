@@ -7,6 +7,7 @@ const navItems = [
     { label: 'Projects', target: 'projects' },
     { label: 'Skills', target: 'skills' },
     { label: 'Education', target: 'education' },
+    { label: 'Certifications', target: 'certifications' },
     { label: 'Contact', target: 'contact' },
 ];
 
