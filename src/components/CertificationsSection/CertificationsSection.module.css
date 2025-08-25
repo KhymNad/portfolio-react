@@ -12,13 +12,13 @@
 
 @media (max-width: 1200px) {
     .project_container {
-        padding: 0 4rem;
+        padding: 0 3rem;
     }
 }
 
 @media (max-width: 768px) {
     .project_container {
-        padding: 0 2rem;
+        padding: 0 1.5rem;
     }
 }
 
@@ -40,12 +40,33 @@
     height: 4px;
     background-color: #ffffff;
     border-radius: 4px;
+    width: 80px; /* keeps underline consistent */
 }
 
 .certification_grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 992px) {
+    .certification_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: stacked in one column */
+@media (max-width: 600px) {
+    .certification_grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .section_title h2 {
+        font-size: 1.5rem;
+    }
 }
 
 .certification_item {
