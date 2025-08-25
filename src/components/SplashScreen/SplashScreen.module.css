@@ -10,6 +10,8 @@
     font-family: 'Inter', sans-serif;
     user-select: none;
     z-index: 9999;
+    padding: 1rem; 
+    text-align: center; 
 }
 
 .splash_text {
@@ -30,4 +32,29 @@
     margin: 0;
     text-transform: uppercase;
     font-style: normal;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .splash_text {
+        font-size: 2.5rem; 
+        letter-spacing: 0.1em;
+    }
+
+    .splash_subtitle {
+        font-size: 1rem; 
+        letter-spacing: 0.15em;
+    }
+}
+
+@media (max-width: 480px) {
+    .splash_text {
+        font-size: 2rem;
+        letter-spacing: 0.08em;
+    }
+
+    .splash_subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 0.12em;
+    }
 }

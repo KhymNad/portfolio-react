@@ -10,9 +10,9 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2rem 2rem;
-    background-color: transparent;
-    height: 30px;
+    padding: 1rem 2rem;
+    background-color: rgba(0,0,0,0.4);
+    height: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,9 +24,9 @@
 }
 
 .nav_left {
-    padding-left: 2rem;
     font-size: 1.25rem;
     color: white;
+    font-weight: 600;
     cursor: none !important;
 }
 
@@ -36,8 +36,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    padding-right: 2rem;
-    flex-wrap: wrap;
+    align-items: center;
     cursor: none !important;
 }
 
@@ -53,7 +52,6 @@
 
 .nav_item:hover {
     color: #ffffff;
-    cursor: none !important;
 }
 
 .nav_item::after {
@@ -65,43 +63,89 @@
     width: 0;
     background-color: #ffffff;
     transition: width 0.3s ease;
-    cursor: none !important;
 }
 
 .nav_item:hover::after {
     width: 100%;
-    cursor: none !important;
 }
 
 .nav_item.active {
     color: #ffffff;
-    cursor: none !important;
 }
 
 .nav_item.active::after {
     width: 100%;
-    cursor: none !important;
 }
 
+/* Mobile Navigation */
 @media (max-width: 768px) {
     .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-        cursor: none !important;
+        flex-direction: row;
+        padding: 0.75rem 1rem;
     }
 
+    .nav_left {
+        font-size: 1.1rem;
+    }
+
+    /* Hide nav_right by default */
     .nav_right {
+        display: none;
+        flex-direction: column;
         width: 100%;
-        justify-content: flex-start;
+        background-color: rgba(0,0,0,0.85);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1rem;
         gap: 1rem;
-        margin-top: 1rem;
-        cursor: none !important;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    /* Only show when toggled */
+    .nav_right.active {
+        display: flex;
     }
 
     .nav_item {
-        font-size: 0.95rem;
-        text-decoration: none;
+        font-size: 1rem;
+        padding: 0.75rem 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    /* Burger button (mobile only) */
+    .burger {
+        display: block;
+        width: 30px;
+        height: 20px;
+        position: relative;
         cursor: none !important;
     }
+
+    .burger span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: white;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Animate into X when active */
+    .burger.active span:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+    }
+    .burger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .burger.active span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+    }
+}
+
+/* Slide down effect */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
 }

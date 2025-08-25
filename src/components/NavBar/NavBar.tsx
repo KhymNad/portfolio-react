@@ -13,6 +13,7 @@ const navItems = [
 
 const NavBar: React.FC = () => {
     const [activeSection, setActiveSection] = useState('');
+    const [menuOpen, setMenuOpen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
@@ -48,21 +49,34 @@ const NavBar: React.FC = () => {
 
     return (
         <nav className={styles.nav}>
-        <div className={styles.nav_left}>Khym</div>
-        <ul className={styles.nav_right}>
-            {navItems.map((item) => (
-            <li key={item.target}>
-                <Link
-                className={`${styles.nav_item} ${
-                    activeSection === item.target ? styles.active : ''
-                }`}
-                to={`/#${item.target}`}
-                >
-                {item.label}
-                </Link>
-            </li>
-            ))}
-        </ul>
+            <div className={styles.nav_left}>Khym</div>
+
+            {/* Burger menu */}
+            <div 
+                className={`${styles.burger} ${menuOpen ? styles.active : ''}`} 
+                onClick={() => setMenuOpen(!menuOpen)}
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            {/* Collapsible nav */}
+            <ul className={`${styles.nav_right} ${menuOpen ? styles.active : ''}`}>
+                {navItems.map((item) => (
+                    <li key={item.target}>
+                        <Link
+                            className={`${styles.nav_item} ${
+                                activeSection === item.target ? styles.active : ''
+                            }`}
+                            to={`/#${item.target}`}
+                            onClick={() => setMenuOpen(false)}  // close after click
+                        >
+                            {item.label}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </nav>
     );
 };
