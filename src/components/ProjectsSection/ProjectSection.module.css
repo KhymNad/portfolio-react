@@ -1,15 +1,19 @@
 .project_section {
-    padding: 4rem 2rem;
+    padding: 8rem 2rem;
     background-color: #0B0B0B;
     color: white;
+    box-sizing: border-box;
 }
 
 .project_container {
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 4rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+/* Tablet */
 @media (max-width: 1200px) {
     .project_container {
         padding: 0 3rem;
@@ -19,6 +23,12 @@
 @media (max-width: 768px) {
     .project_container {
         padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .project_container {
+        padding: 0 0.5rem;
     }
 }
 
@@ -40,31 +50,95 @@
     height: 4px;
     background-color: #ffffff;
     border-radius: 4px;
-    width: 80px; /* keeps underline consistent */
+    width: 80px;
 }
 
+/* Default grid */
 .project_grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    align-items: start;
 }
 
-/* Tablet: 2 columns */
+/* Tablet breakpoint -> 2 columns (keeps grid for medium screens) */
 @media (max-width: 992px) {
     .project_grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Mobile: stacked in one column (not grid) */
+/* Small screens: switch to stacked column using flex (like certifications) */
 @media (max-width: 600px) {
     .project_grid {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1.25rem;
+    }
+
+    /* ensure each motion wrapper is full width and has a sensible min-height */
+    .project_grid > * {
+        width: 100%;
+        display: block;
+        min-height: 160px; /* prevents collapse */
+        box-sizing: border-box;
+    }
+
+    /* ensure the ProjectCard (the first element inside the wrapper) stretches to full width */
+    .project_grid > * > * {
+        width: 100%;
+        min-height: 160px;
+        box-sizing: border-box;
     }
 
     .title {
         font-size: 1.5rem;
+    }
+}
+
+/* Very small phones: tighten paddings/spacing and ensure visibility <= 350px */
+@media (max-width: 360px) {
+    .project_container {
+        padding: 0 0.4rem;
+    }
+
+    .project_grid {
+        gap: 1rem;
+    }
+
+    .project_grid > * {
+        min-height: 140px;
+    }
+
+    .project_grid > * > * {
+        min-height: 140px;
+    }
+
+    .title {
+        font-size: 1.35rem;
+    }
+}
+
+/* Extra small / target: iPhone narrow viewports (<= 350px) */
+@media (max-width: 350px) {
+    .project_container {
+        padding: 0 0.35rem;
+    }
+
+    .project_grid {
+        gap: 0.85rem;
+    }
+
+    .project_grid > * {
+        min-height: 130px;
+        padding: 0.25rem 0;
+    }
+
+    .project_grid > * > * {
+        min-height: 130px;
+    }
+
+    .title {
+        font-size: 1.25rem;
     }
 }
