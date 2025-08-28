@@ -11,7 +11,8 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     width: 100%;
-    min-height: 130px; 
+    min-height: 130px;
+    box-sizing: border-box; /* ✅ keeps padding inside */
 }
 
 .card:hover {
@@ -30,17 +31,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .image {
     width: 100%;
-    border-radius: 2px;
     height: 100%;
     max-width: 600px;
+    border-radius: 2px;
     object-fit: cover;
     object-position: center;
     background-color: #2a2a2a;
-    margin-top: 0;
 }
 
 /* Content section */
@@ -50,18 +51,19 @@
     flex-direction: column;
     flex-grow: 1;
     width: 100%;
-    box-sizing: border-box;   
-    overflow: hidden;         
+    box-sizing: border-box;
+    overflow: hidden; /* ✅ ensures text never escapes */
 }
 
 .content h3 {
     font-size: 1.25rem;
     color: white;
     margin: 0 0 0.5rem;
-    width: 100%;             
-    word-wrap: break-word;   
-    overflow-wrap: break-word;
+    width: 100%;
     line-height: 1.3;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    text-overflow: ellipsis;
 }
 
 .content p {
@@ -69,11 +71,11 @@
     font-size: 0.95rem;
     line-height: 1.5;
     flex-grow: 1;
-    width: 100%;              
+    width: 100%;
+    margin: 0;
+    text-align: left;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    margin: 0;                
-    text-align: left;
 }
 
 /* Tags */
@@ -104,18 +106,20 @@
 
 /* Links (buttons row) */
 .links {
-    margin-top: auto; /* push links to bottom of card */
+    margin-top: auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap; /* ✅ allows wrapping on small screens */
     gap: 0.75rem;
-    flex-wrap: wrap;      
-    width: 100%;          
+    width: 100%;
+    justify-content: flex-start; /* keep consistent spacing */
     box-sizing: border-box;
 }
 
 .details,
 .btnOutline {
+    flex: 1 1 auto; /* ✅ buttons shrink & grow nicely */
+    min-width: 120px; /* prevents collapsing too small */
+    max-width: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -123,11 +127,13 @@
     padding: 0.45rem 1rem;
     border-radius: 8px;
     font-size: 0.9rem;
-    text-decoration: none;
     font-weight: 500;
+    text-decoration: none;
     transition: all 0.2s ease;
-    max-width: 100%;     
     box-sizing: border-box;
+    text-align: center;
+    overflow: hidden; 
+    text-overflow: ellipsis; /* ✅ long button text handled */
 }
 
 .details {
@@ -150,7 +156,6 @@
 .btnOutline:hover {
     background-color: #ffffff;
     color: #000;
-    border-color: #ffffff;
 }
 
 .btnIcon {
@@ -162,11 +167,11 @@
     position: absolute;
     margin: 1rem;
     top: 12px;
-    left: 12px; 
+    left: 12px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); 
-    color: white; 
+    -webkit-backdrop-filter: blur(8px);
+    color: white;
     font-weight: bold;
     font-size: 0.8rem;
     padding: 0.3rem 0.6rem;
