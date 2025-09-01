@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import ProjectDetails from '../../components/ProjectsSection/ProjectDetails';
 import { CustomCursor } from '../../components';
+import { motion } from 'framer-motion';
 
 
 type Project = {
@@ -113,9 +114,14 @@ export default function ProjectPage() {
     <>
       <CustomCursor />
       <NavBar />
-      <div style={{ paddingTop: '6rem' }}>
+      <motion.div
+        style={{ paddingTop: '6rem' }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+      >
         <ProjectDetails {...data} />
-      </div>
+      </motion.div>
     </>
   );
 }
