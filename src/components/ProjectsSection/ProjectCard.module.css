@@ -11,7 +11,9 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     width: 100%;
-    min-height: 130px; 
+    /* min-height: 130px;  */
+    height: 490px;
+    min-height: unset;
 }
 
 .card:hover {
@@ -179,6 +181,10 @@
 
 /* Tablets */
 @media (max-width: 1024px) {
+    .card {
+        height: 380px;
+    }
+
     .image_container {
         height: 200px;
     }
@@ -196,6 +202,7 @@
 @media (max-width: 768px) {
     .card {
         border-radius: 8px;
+        height: 340px;
     }
 
     .image_container {
@@ -228,6 +235,7 @@
 @media (max-width: 480px) {
     .card {
         border-radius: 6px;
+        height: 300px;
     }
 
     .image_container {
@@ -263,6 +271,10 @@
 
 /* Very small phones */
 @media (max-width: 360px) {
+    .card {
+        height: 280px;
+    }
+
     .image_container {
         height: 100px;
     }
