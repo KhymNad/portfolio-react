@@ -53,7 +53,7 @@ const projectData: Record<string, Project> = {
     title: 'Neuroscience Hackathon App',
     description: `Developed for natHACKS 2024, this innovative React Native app dives into the fascinating world of brainwave analysis. It captures real-time EEG data, processes it with Python-powered machine learning models, and predicts interpersonal compatibility dynamically. The app’s smooth UI visualizes brainwave patterns and compatibility scores, creating a futuristic experience for users interested in neuroscience and social connection. Designed for mobile platforms, it integrates live data streams and predictive algorithms to deliver immediate, meaningful insights, showcasing the power of combining biology with technology.`,
     image: '/images/projects/neuromance-thumb.jpg',
-    tags: ['React Native', 'Node.js', 'Python', 'JavaScript', 'Machine Learning', 'EEG', 'Data Visualization', 'Hackathon'],
+    tags: ['React Native', 'Next.js', 'Python', 'JavaScript', 'numpy', 'pandas', 'scipy', 'pywavelets', 'scipy', 'Hackathon'],
     features: [
       'Real-time EEG data acquisition and visualization',
       'Python backend for brainwave data analysis and prediction',
