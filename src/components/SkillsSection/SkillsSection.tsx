@@ -8,7 +8,7 @@ const languages = [
 ];
 
 const tools = [
-    'Git', 'Docker', 'Firebase', 'MongoDB', 'Heroku', 'Supabase', 'SQL Server',
+    'Git', 'Docker', 'Firebase', 'MongoDB', 'Heroku', 'Supabase', 'PostgreSQL', 'MySQL',
     'VS Code', 'GitHub', 'Figma', 'Vercel',
 ];
 
