@@ -9,3 +9,4 @@ export {default as Footer} from './Footer/Footer';
 export {default as SplashScreen} from './SplashScreen/SplashScreen';
 export {default as CustomCursor} from './CustomCursor/CustomCursor';
 export {default as Certifications} from './CertificationsSection/CertificationsSection';
+export {default as WorkExperience} from './WorkExperienceSection/WorkExperience';

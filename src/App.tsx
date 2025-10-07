@@ -2,7 +2,8 @@ import './App.css'
 import { 
   NavBar, 
   HeroSection, 
-  ProjectSection, 
+  ProjectSection,
+  WorkExperience, 
   SkillsSection, 
   EducationSection, 
   Certifications,
@@ -79,6 +80,7 @@ function App() {
         <>
           <NavBar />
           <HeroSection />
+          <WorkExperience />
           <ProjectSection />
           <SkillsSection />
           <EducationSection />
