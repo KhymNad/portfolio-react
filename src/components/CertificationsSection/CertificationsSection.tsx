@@ -23,7 +23,7 @@ const CertificationsSection: React.FC = () => {
         '../../images/certificates/board_infinity/boardInfinity_frontendDevelopment_react.png',
         '../../images/certificates/microsoft/microsoft_.NetBackEndDevelopment.png',
         '../../images/certificates/microsoft/microsoft_databaseIntegrationAndManagement.png',
-        '../../images/certificates/microsoft/microsoft_foundations_fullStack.png'
+        '../../images/certificates/microsoft/microsoft_fullStackDeveloper.png'
     ];
 
     const openZoom = (imgSrc: string) => setZoomedImage(imgSrc);
