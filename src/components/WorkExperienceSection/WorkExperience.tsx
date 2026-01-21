@@ -8,9 +8,9 @@ const experiences = [
         company: 'Skillement.ai',
         date: 'Aug 2025 – Present',
         details: [
-        'Engineer a multi-tenant SaaS platform with Next.js, TypeScript, Prisma, and Supabase, enforcing role-based access control and audit logging.',
-        'Implement core services such as Client Authentication, Stripe billing, and Resend email workflows to streamline onboarding and subscription management.',
-        'Design and optimize Postgres schemas with Prisma for assessments, scoring, and multi-tenant data management, boosting performance and scalability.',
+        'Engineer a multi-tenant SaaS platform with Next.js, TypeScript, and Supabase Edge Functions, enforcing role-based access control and audit logging.',
+        'Implement core services such as Client Authentication and Amazon Simple Email Service (SES) for secure mail workflows to streamline onboarding and profile management.',
+        'Architect and build the AI-Driven Value Creation Platform (AIVCP) with Next.js, TypeScript, Supabase, and PostgreSQL, implementing scalable APIs, AI-assisted workflows, and data pipelines that translate enterprise AI readiness into actionable insights, while applying multi-tenant design, RBAC, and audit logging.',
         'Lead the design and implementation of the Quizzing Engine powering the AIQ (AI Quotient) and AICK (AI Capability Kit), enabling adaptive assessments and personalized readiness pathways.',
         ],
     },
