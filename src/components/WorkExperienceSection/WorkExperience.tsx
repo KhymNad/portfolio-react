@@ -4,8 +4,8 @@ import styles from './WorkExperienceSection.module.css';
 
 const experiences = [
     {
-        role: 'AI Application Developer & Project Lead',
-        company: 'Skillement.ai',
+        role: 'Full-Stack Developer Co-Op',
+        company: 'Meritrium - Skillement.ai',
         date: 'Aug 2025 – Present',
         details: [
         'Implement role-based access control in a multi-tenant platform using TypeScript, Vite, and Supabase edge functions, designing user roles, permissions, and policies to ensure each tenant’s data and features are properly isolated and secured.',
