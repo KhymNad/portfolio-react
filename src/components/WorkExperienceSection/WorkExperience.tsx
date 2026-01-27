@@ -8,10 +8,10 @@ const experiences = [
         company: 'Skillement.ai',
         date: 'Aug 2025 – Present',
         details: [
-        'Engineer a multi-tenant SaaS platform with Next.js, TypeScript, and Supabase Edge Functions, enforcing role-based access control and audit logging.',
-        'Implement core services such as Client Authentication and Amazon Simple Email Service (SES) for secure mail workflows to streamline onboarding and profile management.',
-        'Architect and build the AI-Driven Value Creation Platform (AIVCP) with Next.js, TypeScript, Supabase, and PostgreSQL, implementing scalable APIs, AI-assisted workflows, and data pipelines that translate enterprise AI readiness into actionable insights, while applying multi-tenant design, RBAC, and audit logging.',
-        'Lead the design and implementation of the Quizzing Engine powering the AIQ (AI Quotient) and AICK (AI Capability Kit), enabling adaptive assessments and personalized readiness pathways.',
+        'Implement role-based access control in a multi-tenant platform using TypeScript, Vite, and Supabase edge functions, designing user roles, permissions, and policies to ensure each tenant’s data and features are properly isolated and secured.',
+        'Developed the Quizzing Engine for AIQ and AICK tests, creating assessments with questions randomized from 7 sets and enforcing testing restrictions like cursor actions and movement and window activity using TypeScript, React, and Vite.',
+        'Built member and sponsor dashboards using React, TypeScript, and Supabase Edge Functions. Member dashboards display assessment and questionnaire results; sponsor dashboards manage member uploads with company pilot generation, assessment reminders, and deadlines. Implemented email notifications via Amazon SES with temporary-password sign-in.',
+        'Designed and optimized PostgreSQL schemas, including schema normalization, foreign key constraints, composite and partial indexes, and Row-Level Security (RLS) policies to enhance query efficiency, performance, and data integrity.',
         ],
     },
 ];
