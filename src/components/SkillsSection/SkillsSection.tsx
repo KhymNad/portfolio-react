@@ -3,12 +3,12 @@ import { motion, useInView } from 'framer-motion';
 import styles from './SkillsSection.module.css';
 
 const languages = [
-    'JavaScript', 'TypeScript', 'Python', 'C#', 'HTML', 'CSS', 'Java',
+    'JavaScript', 'TypeScript', 'Python', 'C#', 'HTML', 'CSS',
     'React', 'Next.js', 'Django', 'Blazor', '.NET', 'ASP.Net Core'
 ];
 
 const tools = [
-    'Git', 'Docker', 'Firebase', 'MongoDB', 'Heroku', 'Supabase', 'PostgreSQL', 'MySQL',
+    'Git', 'Docker', 'Firebase', 'MongoDB', 'Supabase', 'PostgreSQL', 'MySQL',
     'VS Code', 'GitHub', 'Figma', 'Vercel',
 ];
 
