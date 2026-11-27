@@ -4,6 +4,17 @@ import styles from './WorkExperienceSection.module.css';
 
 const experiences = [
     {
+        role: 'Software Developer',
+        company: 'AbaData',
+        date: 'Mar 2026 – Present',
+        details: [
+        'Improve how FieldOps handles users assigned to multiple organizational hierarchies, addressing gaps in permission-based data visibility and stale or duplicate associations. Use SQL Server, T-SQL, and versioned migrations to support reliable relationship updates and keep access aligned with a user’s assignments.',
+        'Support configurable business rules in dynamic forms, where required fields change based on form state. Use TypeScript and DevExpress validation components to shape custom validation behavior that works with existing rules and provides accurate feedback as conditions change.',
+        'Maintain database-backed FormBuilder functionality, where form configuration must be retrieved, processed, and packaged consistently. Work with SQL Server, stored procedures, functions, and JSON to support form data workflows and align database changes with application releases.',
+        'Investigate data consistency across FieldOps and EmberGO inventory workflows, including links between inventory records and wells and differences in regional scheduling. Use SQL and application data flows to trace mapping and retrieval behavior, and assess geographic data issues in the BC pipeline.',
+        ],
+    },
+    {
         role: 'Full-Stack Developer Co-Op',
         company: 'Meritrium - Skillement.ai',
         date: 'Aug 2025 – Present',
