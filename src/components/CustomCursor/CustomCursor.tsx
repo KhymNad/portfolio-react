@@ -1,69 +1,62 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import styles from './CustomCursor.module.css';
 
+const interactiveSelector = 'a, button, [role="button"], .clickable, .certification_item';
+
 const CustomCursor: React.FC = () => {
-    const [position, setPosition] = useState({ x: -100, y: -100 });
     const [hovering, setHovering] = useState(false);
-    const [dotOffset, setDotOffset] = useState({ x: 0, y: 0 });
-    const lastPosition = useRef({ x: -100, y: -100 });
+    const [hasPosition, setHasPosition] = useState(false);
+    const hasPositionRef = useRef(false);
+    const x = useSpring(useMotionValue(-100), { stiffness: 520, damping: 42, mass: 0.22 });
+    const y = useSpring(useMotionValue(-100), { stiffness: 520, damping: 42, mass: 0.22 });
 
     useEffect(() => {
-        const onMouseMove = (e: MouseEvent) => {
-            const dx = e.clientX - lastPosition.current.x;
-            const dy = e.clientY - lastPosition.current.y;
-            lastPosition.current = { x: e.clientX, y: e.clientY };
+        const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+        if (!finePointer.matches) return;
 
-            // Normalize velocity so it’s never more than ~6px offset
-            const length = Math.sqrt(dx * dx + dy * dy) || 1;
-            const maxOffset = 6;
-            setDotOffset({
-                x: (dx / length) * maxOffset,
-                y: (dy / length) * maxOffset
-            });
-
-            setPosition({ x: e.clientX, y: e.clientY });
-        };
-
-        const onMouseOver = (e: MouseEvent) => {
-            const target = e.target as HTMLElement;
-            if (target.closest("a, button, .clickable, .certification_item")) {
-                setHovering(true);
+        const onPointerMove = (event: PointerEvent) => {
+            if (!hasPositionRef.current) {
+                x.jump(event.clientX);
+                y.jump(event.clientY);
+                hasPositionRef.current = true;
+                setHasPosition(true);
+                return;
             }
+            x.set(event.clientX);
+            y.set(event.clientY);
+        };
+        const onPointerOver = (event: PointerEvent) => {
+            setHovering((event.target as HTMLElement | null)?.closest(interactiveSelector) !== null);
+        };
+        const onPointerOut = (event: PointerEvent) => {
+            const from = (event.target as HTMLElement | null)?.closest(interactiveSelector);
+            const to = (event.relatedTarget as HTMLElement | null)?.closest(interactiveSelector);
+            if (from && !to) setHovering(false);
+            if (!from && to) setHovering(true);
         };
 
-        const onMouseOut = (e: MouseEvent) => {
-            const target = e.target as HTMLElement;
-            if (target.closest("a, button, .clickable, .certification_item")) {
-                setHovering(false);
-            }
-        };
-
-        document.addEventListener("mousemove", onMouseMove);
-        document.addEventListener("mouseover", onMouseOver);
-        document.addEventListener("mouseout", onMouseOut);
-
+        document.addEventListener('pointermove', onPointerMove);
+        document.addEventListener('pointerover', onPointerOver);
+        document.addEventListener('pointerout', onPointerOut);
         return () => {
-            document.removeEventListener("mousemove", onMouseMove);
-            document.removeEventListener("mouseover", onMouseOver);
-            document.removeEventListener("mouseout", onMouseOut);
+            document.removeEventListener('pointermove', onPointerMove);
+            document.removeEventListener('pointerover', onPointerOver);
+            document.removeEventListener('pointerout', onPointerOut);
         };
-    }, []);
+    }, [x, y]);
 
     return (
-        <div
-            className={`${styles.customCursor} ${hovering ? styles.hovering : ""}`}
-            style={{
-                top: `${position.y}px`,
-                left: `${position.x}px`,
-            }}
+        <motion.div
+            className={`${styles.customCursor} ${hovering ? styles.hovering : ''}`}
+            style={{ x, y }}
+            initial={false}
+            animate={{ opacity: hasPosition ? 1 : 0 }}
+            transition={{ duration: .3, ease: 'easeOut' }}
+            aria-hidden="true"
         >
-            <div
-                className={styles.innerDot}
-                style={{
-                    transform: `translate(${dotOffset.x}px, ${dotOffset.y}px)`
-                }}
-            />
-        </div>
+            <span className={styles.innerDot} />
+        </motion.div>
     );
 };
 

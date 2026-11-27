@@ -91,8 +91,9 @@ const ProjectSection: React.FC = () => {
         >
             <div className={styles.project_container}>
                 <div className={styles.section_title}>
+                    <p className={styles.eyebrow}>SELECTED WORK</p>
                     <h2 className={styles.title} ref={titleRef}>
-                        Technical Projects
+                        Projects
                     </h2>
                     <motion.div
                         className={styles.underline}

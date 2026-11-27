@@ -12,17 +12,34 @@ import {
   SplashScreen,
   CustomCursor
 } from './components';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [isSplashVisible, setIsSplashVisible] = useState(false);
+  const shouldShowIntro = location.pathname === '/' && location.hash === '';
+  const [isSplashVisible, setIsSplashVisible] = useState(shouldShowIntro);
+  const [introStarted, setIntroStarted] = useState(!shouldShowIntro);
   const hasRedirected = useRef(false);
-  const splashShown = useRef(false);
+  const handleTitleReady = useCallback(() => setIntroStarted(true), []);
+
+  useEffect(() => {
+    if (!isSplashVisible) return;
+
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.body.style.overflow = previousBodyOverflow;
+    };
+  }, [isSplashVisible]);
 
   // Run redirect only once on initial mount if URL is not clean "/"
   useEffect(() => {
@@ -33,16 +50,6 @@ function App() {
       hasRedirected.current = true;
     }
   }, [location.pathname, location.hash, navigate]);
-
-  // Show splash only once on initial mount if path is clean "/"
-  useEffect(() => {
-    if (!splashShown.current) {
-      if (location.pathname === "/" && location.hash === "") {
-        setIsSplashVisible(true);
-        splashShown.current = true;
-      }
-    }
-  }, []);
 
   // Scroll to hash after splash is hidden
   useEffect(() => {
@@ -63,12 +70,13 @@ function App() {
   }, [location, isSplashVisible]);
 
   return (
-    <>
+    <LayoutGroup id="portfolio-intro">
       {!isSplashVisible && <CustomCursor />}
 
       <AnimatePresence>
         {isSplashVisible && (
           <SplashScreen
+            onTitleReady={handleTitleReady}
             onFinish={() => {
               setIsSplashVisible(false);
             }}
@@ -76,20 +84,22 @@ function App() {
         )}
       </AnimatePresence>
 
-      {!isSplashVisible && (
-        <>
-          <NavBar />
-          <HeroSection />
-          <WorkExperience />
-          <ProjectSection />
-          <SkillsSection />
-          <EducationSection />
-          <Certifications />
-          <ContactSection />
-          <Footer />
-        </>
-      )}
-    </>
+      {introStarted && <HeroSection introComplete={!isSplashVisible} />}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isSplashVisible ? 0 : 1 }}
+        transition={{ duration: 0.7, delay: isSplashVisible ? 0 : 0.05, ease: 'easeOut' }}
+      >
+        {!isSplashVisible && <NavBar />}
+        <WorkExperience />
+        <ProjectSection />
+        <SkillsSection />
+        <EducationSection />
+        <Certifications />
+        <ContactSection />
+        <Footer />
+      </motion.div>
+    </LayoutGroup>
   );
 }
 

@@ -31,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     devpostLink
 }) => {
     return (
-        <div className={styles.card}>
+        <article className={styles.card}>
             <div className={styles.image_container}>
                 <img src={image} alt={title} className={styles.image} />
                 {badge && <span className={styles.badge}>{badge}</span>}
@@ -96,7 +96,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     </Link>
                 </div>
             </div>
-        </div>
+        </article>
     );
 };
 

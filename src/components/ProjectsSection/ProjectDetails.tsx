@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faSquareGithub } from '@fortawesome/free-brands-svg-icons';
@@ -33,19 +33,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     devpostLink,
 }) => {
     const navigate = useNavigate();
-    const titleRef = useRef<HTMLHeadingElement>(null);
-    const [underlineWidth, setUnderlineWidth] = useState(0);
     const [isZoomed, setIsZoomed] = useState(false);
-
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            if (titleRef.current) {
-                const titleWidth = titleRef.current.offsetWidth;
-                setUnderlineWidth(titleWidth / 2.5);
-            }
-        }, 1100);
-        return () => clearTimeout(timeout);
-    }, []);
 
     const toggleZoom = () => {
         setIsZoomed(prev => !prev);
@@ -67,21 +55,19 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
             <motion.section
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
             >
                 <div className={styles.container}>
                     <motion.div
                         className={styles.container_left}
-                        initial={{ x: -100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1, ease: 'easeOut', delay: 0.1 }}
+                        initial={{ y: 12, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.04 }}
                     >
                         <div className={styles.project_title}>
-                            <h1 ref={titleRef}>{title}</h1>
-                            <div
-                                className={styles.underline}
-                                style={{ width: `${underlineWidth}px` }}
-                            />
+                            <p className={styles.kicker}>PROJECT OVERVIEW</p>
+                            <h1>{title}</h1>
+                            <div className={styles.underline} />
                         </div>
                         <p>{description}</p>
                         <div className={styles.links}>
@@ -145,25 +131,24 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 
                     <motion.div
                         className={styles.container_right}
-                        initial={{ x: 100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1, ease: 'easeOut', delay: 0.1 }}
+                        initial={{ y: 16, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
                     >
                         <div className={`${styles.imageWrapper} clickable`} onClick={toggleZoom}>
                             <motion.img
                                 src={image}
                                 alt={`${title} screenshot`}
                                 className={styles.image}
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ type: 'spring', stiffness: 300 }}
+                                whileHover={{ scale: 1.015 }}
+                                transition={{ duration: 0.35, ease: 'easeOut' }}
                             />
                         </div>
 
                         <motion.div
                             className={styles.features}
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            transition={{ type: 'spring', stiffness: 300 }}
+                            whileHover={{ y: -2 }}
+                            transition={{ duration: 0.2, ease: 'easeOut' }}
                         >
                             <h3>Key Features</h3>
                             <ul>
@@ -190,10 +175,10 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
                             src={image}
                             alt="Zoomed"
                             className={styles.zoomedImage}
-                            initial={{ scale: 0.7 }}
+                            initial={{ scale: 0.96 }}
                             animate={{ scale: 1 }}
-                            exit={{ scale: 0.7 }}
-                            transition={{ type: 'spring', stiffness: 300 }}
+                            exit={{ scale: 0.98 }}
+                            transition={{ duration: 0.2, ease: 'easeOut' }}
                             onClick={(e) => e.stopPropagation()} // prevent overlay click
                         />
                     </motion.div>

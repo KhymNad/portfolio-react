@@ -94,7 +94,7 @@ const ContactSection: React.FC = () => {
                                             delay: index * 0.05
                                         }}
                                         viewport={{ once: true }}
-                                        whileHover={{ scale: 1.02 }}
+                                        whileHover={{ x: 3 }}
                                     >
                                         <FontAwesomeIcon icon={icon} className={styles.icon} />
                                         <span className={styles.contact_card_text}>{text}</span>

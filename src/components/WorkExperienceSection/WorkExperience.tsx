@@ -44,7 +44,7 @@ const WorkExperienceSection: React.FC = () => {
     const cardVariants = {
         hidden: { opacity: 0, y: 30, scale: 0.98 },
         visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.3, ease: "easeOut" as const } },
-        hover: { scale: 1.02, boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.1)', transition: { duration: 0.2 } },
+        hover: { y: -3, transition: { duration: 0.2 } },
     };
 
     return (
@@ -59,6 +59,7 @@ const WorkExperienceSection: React.FC = () => {
         >
         <div className={styles.work_container}>
             <div className={styles.section_title}>
+            <p className={styles.eyebrow}>CAREER</p>
             <h2 className={styles.title} ref={titleRef}>
                 Work Experience
             </h2>
@@ -72,7 +73,7 @@ const WorkExperienceSection: React.FC = () => {
 
             <div className={styles.experience_list}>
             {experiences.map((exp, index) => (
-                <motion.div
+                <motion.article
                 key={index}
                 className={styles.experience_card}
                 variants={cardVariants}
@@ -94,7 +95,7 @@ const WorkExperienceSection: React.FC = () => {
                     <li key={i}>{point}</li>
                     ))}
                 </ul>
-                </motion.div>
+                </motion.article>
             ))}
             </div>
         </div>
