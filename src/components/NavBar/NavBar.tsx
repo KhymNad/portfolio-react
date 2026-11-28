@@ -15,6 +15,7 @@ const navItems = [
 const NavBar: React.FC = () => {
     const [activeSection, setActiveSection] = useState('');
     const [menuOpen, setMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
@@ -22,10 +23,12 @@ const NavBar: React.FC = () => {
 
         if (!isHomepage) {
             setActiveSection('');
+            setScrolled(true);
             return;
         }
 
         const handleScroll = () => {
+            setScrolled(window.scrollY > 24);
             const scrollPosition = window.scrollY + window.innerHeight / 3;
             let current = 'home';
 
@@ -49,18 +52,21 @@ const NavBar: React.FC = () => {
     }, [location]);
 
     return (
-        <nav className={styles.nav}>
-            <div className={styles.nav_left}>Khym</div>
+        <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
+            <Link to="/#home" className={styles.nav_left} aria-label="Khym Nad, home">Khym<span>.</span></Link>
 
             {/* Burger menu */}
-            <div 
+            <button
+                type="button"
                 className={`${styles.burger} ${menuOpen ? styles.active : ''}`} 
                 onClick={() => setMenuOpen(!menuOpen)}
+                aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                aria-expanded={menuOpen}
             >
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
 
             {/* Collapsible nav */}
             <ul className={`${styles.nav_right} ${menuOpen ? styles.active : ''}`}>

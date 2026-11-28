@@ -31,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     devpostLink
 }) => {
     return (
-        <div className={styles.card}>
+        <article className={styles.card}>
             <div className={styles.image_container}>
                 <img src={image} alt={title} className={styles.image} />
                 {badge && <span className={styles.badge}>{badge}</span>}
@@ -41,14 +41,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 <p>{description}</p>
                 {tags && tags.length > 0 && (
                     <div className={styles.tagList}>
-                        {tags.slice(0, 3).map((tag, i) => (
+                        {tags.slice(0, 4).map((tag, i) => (
                             <span key={i} className={styles.tag}>
                                 {tag}
                             </span>
                         ))}
-                        {tags.length > 3 && (
+                        {tags.length > 4 && (
                             <span className={styles.tagOverflow}>
-                                +{tags.length - 3} more
+                                +{tags.length - 4} more
                             </span>
                         )}
                     </div>
@@ -96,7 +96,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     </Link>
                 </div>
             </div>
-        </div>
+        </article>
     );
 };
 

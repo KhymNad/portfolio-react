@@ -45,12 +45,17 @@ const EducationSection: React.FC = () => {
 
                 <motion.div
                     className={styles.education_card}
-                    initial={{ opacity: 0, y: 30, rotateX: -8 }}
-                    whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                    whileHover={{ y: -8, scale: 1.02 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -3 }}
+                    transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                     viewport={{ once: true }}
                 >
+                    <img
+                        className={styles.school_crest}
+                        src="https://www.chem.ualberta.ca/~massspec/images/UASmall_heritage1.jpg"
+                        alt="University of Alberta crest"
+                    />
                     <h3>BSc - Computing Science, Minor in Mathematics</h3>
                     <h4>University of Alberta</h4>
                     <p>

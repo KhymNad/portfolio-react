@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import ProjectDetails from '../../components/ProjectsSection/ProjectDetails';
@@ -108,6 +109,10 @@ export default function ProjectPage() {
   const { slug } = useParams();
   const data = projectData[slug ?? ''];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   if (!data) return <p style={{ color: 'white' }}>Project not found</p>;
 
   return (
@@ -115,10 +120,10 @@ export default function ProjectPage() {
       <CustomCursor />
       <NavBar />
       <motion.div
-        style={{ paddingTop: '6rem' }}
-        initial={{ opacity: 0, y: 20 }}
+        style={{ paddingTop: '7.5rem' }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
         <ProjectDetails {...data} />
       </motion.div>

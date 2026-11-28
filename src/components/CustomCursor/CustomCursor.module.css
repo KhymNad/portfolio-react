@@ -1,35 +1,91 @@
+.cursor_active { cursor: none; }
+.cursor_active a,
+.cursor_active button,
+.cursor_active [role="button"],
+.cursor_active .clickable,
+.cursor_active .certification_item { cursor: none !important; }
+
 .customCursor {
   position: fixed;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 2px solid white;
-  background-color: transparent;
-  pointer-events: none;
+  top: 0;
+  left: 0;
   z-index: 999999;
-  mix-blend-mode: difference;
-  transition:
-    width 0.2s ease,
-    height 0.2s ease,
-    background-color 0.2s ease,
-    box-shadow 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(190, 199, 255, .78);
+  border-radius: 50%;
+  background: rgba(18, 20, 30, .22);
+  box-shadow: 0 0 24px rgba(128, 147, 255, .16), inset 0 0 12px rgba(158, 175, 255, .08);
+  pointer-events: none;
+  will-change: transform;
+  transition: width .22s cubic-bezier(.2,.8,.2,1), height .22s cubic-bezier(.2,.8,.2,1), margin .22s cubic-bezier(.2,.8,.2,1), border-color .22s, background .22s, box-shadow .22s;
 }
 
-.hovering {
-  width: 30px;
-  height: 30px;
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 8px 2px white;
+.cursorHalo {
+  position: absolute;
+  inset: -6px;
+  border: 1px solid rgba(158, 175, 255, .24);
+  border-right-color: rgba(131, 215, 197, .76);
+  border-radius: 50%;
+  opacity: .8;
+  transform: rotate(-25deg);
+  transition: inset .22s, opacity .22s, border-color .22s, transform .3s cubic-bezier(.2,.8,.2,1);
 }
 
 .innerDot {
-  width: 8px;
-  height: 8px;
-  background-color: white;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  transition: transform 0.08s ease-out;
+  background: #dce1ff;
+  box-shadow: 0 0 12px rgba(158, 175, 255, .95), 0 0 24px rgba(131, 215, 197, .28);
+  transition: width .2s, height .2s, background .2s, box-shadow .2s;
+}
+
+.cursorLabel {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 9px);
+  padding: .28rem .42rem;
+  border: 1px solid rgba(131, 215, 197, .32);
+  border-radius: 3px;
+  color: #d8fff5;
+  background: rgba(13, 17, 21, .82);
+  font: 600 .54rem/1 Inter, sans-serif;
+  letter-spacing: .12em;
+  opacity: 0;
+  transform: translate(-4px, -50%);
+  transition: opacity .16s, transform .16s;
+}
+
+.hovering {
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  border-color: rgba(131, 215, 197, .82);
+  background: rgba(131, 215, 197, .07);
+  box-shadow: 0 0 30px rgba(131, 215, 197, .2), inset 0 0 16px rgba(131, 215, 197, .08);
+}
+
+.hovering .cursorHalo {
+  inset: -8px;
+  border-color: rgba(131, 215, 197, .24);
+  border-right-color: rgba(158, 175, 255, .86);
+  opacity: 1;
+  transform: rotate(55deg);
+}
+
+.hovering .innerDot {
+  width: 7px;
+  height: 7px;
+  background: #83d7c5;
+  box-shadow: 0 0 14px rgba(131, 215, 197, .95), 0 0 26px rgba(131, 215, 197, .35);
+}
+
+.hovering .cursorLabel { opacity: 1; transform: translate(0, -50%); }
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .customCursor { display: none; }
 }
