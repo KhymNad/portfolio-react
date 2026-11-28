@@ -70,7 +70,7 @@ const ProjectSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
     const [underlineWidth, setUnderlineWidth] = useState(0);
 
-    const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+    const isInView = useInView(sectionRef, { once: true, amount: 0.05 });
 
     useEffect(() => {
         if (titleRef.current) {
@@ -87,7 +87,7 @@ const ProjectSection: React.FC = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.05 }}
         >
             <div className={styles.project_container}>
                 <div className={styles.section_title}>
@@ -106,7 +106,7 @@ const ProjectSection: React.FC = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{ once: true, amount: 0.05 }}
                 >
                     {projects.map((project, index) => (
                         <motion.div
