@@ -1,8 +1,8 @@
 .skills_section { padding: 7rem 7vw; background: radial-gradient(ellipse at 90% 45%, rgba(131,215,197,.035), transparent 52%); color: #f4f3f0; }
 .project_container { max-width: 1180px; margin: 0 auto; width: 100%; }
 .section_title { margin-bottom: 2.5rem; }
-.title { margin: 0; font-size: clamp(2rem, 4vw, 3.1rem); font-weight: 550; letter-spacing: -.06em; }
-.underline { height: 2px; margin-top: 1rem; border-radius: 4px; background: #9eafff; }
+.title { display: inline-block; max-width: 100%; margin: 0; font-size: clamp(2rem, 4vw, 3.1rem); font-weight: 550; letter-spacing: -.06em; }
+.underline { max-width: 100%; height: 2px; margin-top: 1rem; border-radius: 4px; background: #9eafff; }
 .category { margin-top: 2.5rem; }
 .category_title { margin: 0 0 1rem; padding-left: .85rem; border-left: 2px solid #9eafff; color: #d8d9e1; font-size: 1rem; font-weight: 500; }
 .skill_grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); gap: .7rem; }

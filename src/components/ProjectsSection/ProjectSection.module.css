@@ -2,8 +2,8 @@
 .project_container { max-width: 1180px; margin: 0 auto; width: 100%; }
 .section_title { margin-bottom: 2.5rem; }
 .eyebrow { margin: 0 0 .7rem; color: #9eafff; font: 600 .68rem/1.4 Inter, sans-serif; letter-spacing: .16em; }
-.title { font-size: clamp(2rem, 4vw, 3.1rem); font-weight: 550; letter-spacing: -.06em; margin: 0; }
-.underline { height: 2px; background: #9eafff; border-radius: 4px; margin-top: 1rem; }
+.title { display: inline-block; max-width: 100%; font-size: clamp(2rem, 4vw, 3.1rem); font-weight: 550; letter-spacing: -.06em; margin: 0; }
+.underline { max-width: 100%; height: 2px; background: #9eafff; border-radius: 4px; margin-top: 1rem; }
 .project_grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; align-items: stretch; }
 @media (max-width: 1024px) { .project_grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 768px) {
