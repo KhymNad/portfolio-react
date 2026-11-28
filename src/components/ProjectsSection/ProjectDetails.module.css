@@ -1,4 +1,4 @@
-.main_content { position: relative; max-width: 1280px; margin: 0 auto; padding: 0 2rem 7rem; color: #f4f3f0; }
+.main_content { position: relative; max-width: 1280px; margin: 0 auto; padding: 0 2rem 7rem; overflow-x: clip; color: #f4f3f0; }
 .main_content::before { position: absolute; z-index: -1; top: -3rem; right: -18vw; width: min(70vw, 900px); height: 720px; background: radial-gradient(ellipse, rgba(107,122,202,.16), transparent 68%); content: ""; pointer-events: none; }
 .main_content::after { position: absolute; z-index: -1; top: 25rem; left: -25vw; width: min(50vw, 600px); height: 520px; background: radial-gradient(ellipse, rgba(69,145,137,.07), transparent 70%); content: ""; pointer-events: none; }
 

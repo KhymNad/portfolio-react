@@ -2,8 +2,8 @@
 .work_container { max-width: 1180px; margin: 0 auto; width: 100%; }
 .section_title { margin-bottom: 2.5rem; }
 .eyebrow { margin: 0 0 .7rem; color: #9eafff; font: 600 .68rem/1.4 Inter, sans-serif; letter-spacing: .16em; }
-.title { font-size: clamp(2rem, 4vw, 3.1rem); letter-spacing: -.06em; font-weight: 550; margin: 0; }
-.underline { height: 2px; background: #9eafff; border-radius: 4px; margin-top: 1rem; }
+.title { display: inline-block; max-width: 100%; font-size: clamp(2rem, 4vw, 3.1rem); letter-spacing: -.06em; font-weight: 550; margin: 0; }
+.underline { max-width: 100%; height: 2px; background: #9eafff; border-radius: 4px; margin-top: 1rem; }
 .section_intro { max-width: 520px; margin: 1.15rem 0 0; color: #8e929e; font-size: .95rem; line-height: 1.7; }
 .experience_list { display: grid; gap: 1.2rem; }
 .experience_card { position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(230px, .55fr) 1.45fr; gap: 1.5rem; padding: 1.6rem 1.8rem; border: 1px solid rgba(206,213,255,.13); border-radius: 8px; background: linear-gradient(145deg, rgba(24,26,35,.88), rgba(13,14,19,.84)); box-shadow: 0 18px 50px rgba(0,0,0,.18); transition: border-color .25s, transform .25s, background .25s, box-shadow .25s; }
