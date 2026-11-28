@@ -3,13 +3,16 @@ import { motion, useInView } from 'framer-motion';
 import styles from './SkillsSection.module.css';
 
 const languages = [
-    'JavaScript', 'TypeScript', 'Python', 'C#', 'HTML', 'CSS',
-    'React', 'Next.js', 'Django', 'Blazor', '.NET', 'ASP.Net Core'
+    'JavaScript', 'TypeScript', 'Python', 'C#', 'Java', 'HTML', 'CSS', 'T-SQL',
+    'React', 'React Native', 'Next.js', 'React Router', 'Django', 'Blazor',
+    '.NET', 'ASP.NET Core', 'Node.js', 'Vite', 'Framer Motion'
 ];
 
 const tools = [
-    'Git', 'Docker', 'Firebase', 'MongoDB', 'Supabase', 'PostgreSQL', 'MySQL',
-    'VS Code', 'GitHub', 'Figma', 'Vercel',
+    'Git', 'GitHub', 'Docker', 'Firebase', 'Firestore', 'Supabase', 'PostgreSQL',
+    'SQL Server', 'MySQL', 'Azure', 'Amazon SES', 'DevExpress', 'Hugging Face',
+    'Adzuna API', 'PDFPlumber', 'Android Studio', 'Gradle', 'VS Code', 'Figma',
+    'Vercel', 'Render', 'Heroku', 'GIS', 'Codex', 'Copilot', 'Claude', 'Lovable'
 ];
 
 const SkillsSection = () => {

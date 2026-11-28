@@ -1,28 +1,74 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCode, faDatabase } from '@fortawesome/free-solid-svg-icons';
+import { faReact, faGitAlt, faPython, faAws, faMicrosoft } from '@fortawesome/free-brands-svg-icons';
 import styles from './WorkExperienceSection.module.css';
 
-const experiences = [
+type Experience = {
+    role: string;
+    company: string;
+    companyUrl?: string;
+    companyIcon?: string;
+    date: string;
+    stack: string[];
+    details: { text: string; tools: string[] }[];
+};
+
+const toolIcons: Record<string, React.ReactNode> = {
+    'SQL Server': <FontAwesomeIcon icon={faDatabase} />,
+    'T-SQL': <FontAwesomeIcon icon={faCode} />,
+    Migrations: <FontAwesomeIcon icon={faGitAlt} />,
+    TypeScript: <span className={styles.tool_mark}>TS</span>,
+    DevExpress: <span className={styles.tool_mark}>DX</span>,
+    JSON: <FontAwesomeIcon icon={faCode} />,
+    Git: <FontAwesomeIcon icon={faGitAlt} />,
+    GIS: <FontAwesomeIcon icon={faDatabase} />,
+    Python: <FontAwesomeIcon icon={faPython} />,
+    Supabase: <FontAwesomeIcon icon={faDatabase} />,
+    React: <FontAwesomeIcon icon={faReact} />,
+    Vite: <span className={styles.tool_mark}>V</span>,
+    'Amazon SES': <FontAwesomeIcon icon={faAws} />,
+    PostgreSQL: <FontAwesomeIcon icon={faDatabase} />,
+    SQL: <FontAwesomeIcon icon={faCode} />,
+    RLS: <FontAwesomeIcon icon={faMicrosoft} />,
+    'Access control': <FontAwesomeIcon icon={faMicrosoft} />,
+    'Data integrity': <FontAwesomeIcon icon={faDatabase} />,
+    'Conditional validation': <FontAwesomeIcon icon={faCode} />,
+    'Dynamic forms': <FontAwesomeIcon icon={faCode} />,
+    'GIS data': <FontAwesomeIcon icon={faDatabase} />,
+    'Assessment workflows': <FontAwesomeIcon icon={faCode} />,
+    'Email automation': <FontAwesomeIcon icon={faAws} />,
+    'Edge Functions': <FontAwesomeIcon icon={faCode} />,
+    'Schema design': <FontAwesomeIcon icon={faDatabase} />,
+    'Query optimization': <FontAwesomeIcon icon={faDatabase} />,
+};
+
+const experiences: Experience[] = [
     {
         role: 'Software Developer',
         company: 'AbaData',
+        companyUrl: 'https://www.abadata.ca/',
+        companyIcon: 'https://www.abadata.ca/images/AbaData-Waypoint-Icon.svg',
         date: 'Mar 2026 – Present',
+        stack: ['C#', '.NET', 'SQL', 'Azure', 'React', 'TypeScript', 'JavaScript', 'Git', 'Codex', 'Copilot'],
         details: [
-        'Improve how FieldOps handles users assigned to multiple organizational hierarchies, addressing gaps in permission-based data visibility and stale or duplicate associations. Use SQL Server, T-SQL, and versioned migrations to support reliable relationship updates and keep access aligned with a user’s assignments.',
-        'Support configurable business rules in dynamic forms, where required fields change based on form state. Use TypeScript and DevExpress validation components to shape custom validation behavior that works with existing rules and provides accurate feedback as conditions change.',
-        'Maintain database-backed FormBuilder functionality, where form configuration must be retrieved, processed, and packaged consistently. Work with SQL Server, stored procedures, functions, and JSON to support form data workflows and align database changes with application releases.',
-        'Investigate data consistency across FieldOps and EmberGO inventory workflows, including links between inventory records and wells and differences in regional scheduling. Use SQL and application data flows to trace mapping and retrieval behavior, and assess geographic data issues in the BC pipeline.',
+        { text: 'Improve how users with multiple organizational assignments access the right records by refining database relationships and permissions, while resolving outdated or duplicate links.', tools: ['SQL Server', 'T-SQL', 'Access control', 'Data integrity'] },
+        { text: 'Build configurable form rules that update required fields and validation as users change their responses, keeping feedback consistent with the form’s current state.', tools: ['TypeScript', 'DevExpress', 'Dynamic forms', 'Conditional validation'] },
+        { text: 'Maintain database-backed form workflows so configuration can be stored, retrieved, and packaged consistently across application releases.', tools: ['SQL Server', 'JSON', 'Git'] },
+        { text: 'Investigate inconsistencies across operational records by tracing how related inventory, location, and scheduling data is stored and connected.', tools: ['SQL Server', 'GIS', 'GIS data'] },
         ],
     },
     {
         role: 'Full-Stack Developer Co-Op',
         company: 'Meritrium - Skillement.ai',
         date: 'Aug 2025 – Present',
+        stack: ['TypeScript', 'JavaScript', 'React', 'Supabase', 'PostgreSQL', 'Git', 'Claude', 'Lovable'],
         details: [
-        'Implement role-based access control in a multi-tenant platform using TypeScript, Vite, and Supabase edge functions, designing user roles, permissions, and policies to ensure each tenant’s data and features are properly isolated and secured.',
-        'Developed the Quizzing Engine for AIQ and AICK tests, creating assessments with questions randomized from 7 sets and enforcing testing restrictions like cursor actions and movement and window activity using TypeScript, React, and Vite.',
-        'Built member and sponsor dashboards using React, TypeScript, and Supabase Edge Functions. Member dashboards display assessment and questionnaire results; sponsor dashboards manage member uploads with company pilot generation, assessment reminders, and deadlines. Implemented email notifications via Amazon SES with temporary-password sign-in.',
-        'Designed and optimized PostgreSQL schemas, including schema normalization, foreign key constraints, composite and partial indexes, and Row-Level Security (RLS) policies to enhance query efficiency, performance, and data integrity.',
+        { text: 'Implement tenant-scoped roles and permissions with Supabase Edge Functions, enforcing separation of platform features and data through application access rules.', tools: ['TypeScript', 'Supabase', 'Edge Functions', 'Git', 'Access control'] },
+        { text: 'Develop the AIQ and AICK assessment engine, randomizing questions across seven sets and restricting cursor and window activity during test sessions.', tools: ['React', 'TypeScript', 'Vite', 'Assessment workflows'] },
+        { text: 'Build member and sponsor dashboards for assessment results, uploads, pilot generation, reminders, deadlines, and temporary-password sign-in flows.', tools: ['React', 'Supabase', 'Amazon SES', 'Email automation'] },
+        { text: 'Normalize PostgreSQL schemas and apply foreign keys, composite and partial indexes, and row-level security to protect tenant data and tune query performance.', tools: ['PostgreSQL', 'SQL', 'RLS', 'Schema design', 'Query optimization', 'Data integrity'] },
         ],
     },
 ];
@@ -59,10 +105,10 @@ const WorkExperienceSection: React.FC = () => {
         >
         <div className={styles.work_container}>
             <div className={styles.section_title}>
-            <p className={styles.eyebrow}>CAREER</p>
             <h2 className={styles.title} ref={titleRef}>
                 Work Experience
             </h2>
+            <p className={styles.section_intro}>A closer look at the products, systems, and teams I contribute to.</p>
             <motion.div
                 className={styles.underline}
                 initial={{ width: 0 }}
@@ -74,7 +120,7 @@ const WorkExperienceSection: React.FC = () => {
             <div className={styles.experience_list}>
             {experiences.map((exp, index) => (
                 <motion.article
-                key={index}
+                key={`${exp.company}-${exp.role}`}
                 className={styles.experience_card}
                 variants={cardVariants}
                 initial="hidden"
@@ -84,15 +130,31 @@ const WorkExperienceSection: React.FC = () => {
                 viewport={{ once: true }}
                 >
                 <div className={styles.card_header}>
+                    <div className={styles.company_lockup}>
+                    {exp.companyUrl ? (
+                        <a className={styles.company_mark} href={exp.companyUrl} target="_blank" rel="noopener noreferrer" aria-label="Visit AbaData website">
+                            <img src={exp.companyIcon} alt="AbaData" />
+                        </a>
+                    ) : <span className={styles.company_mark} aria-hidden="true">{exp.company.charAt(0)}</span>}
                     <div>
-                    <h3 className={styles.role}>{exp.role}</h3>
-                    <p className={styles.company}>{exp.company}</p>
+                        {exp.companyUrl ? <a className={styles.company} href={exp.companyUrl} target="_blank" rel="noopener noreferrer">{exp.company} <span aria-hidden="true">↗</span></a> : <p className={styles.company}>{exp.company}</p>}
+                        <h3 className={styles.role}>{exp.role}</h3>
+                        <span className={styles.date}>{exp.date}</span>
+                        <div className={styles.company_stack} aria-label={`${exp.company} technologies`}>
+                            {exp.stack.map(technology => <span className={styles.stack_chip} key={technology}>{technology}</span>)}
+                        </div>
                     </div>
-                    <span className={styles.date}>{exp.date}</span>
+                    </div>
+                    <span className={styles.experience_index} aria-hidden="true">0{index + 1}</span>
                 </div>
                 <ul className={styles.details}>
                     {exp.details.map((point, i) => (
-                    <li key={i}>{point}</li>
+                    <motion.li key={i} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .35, delay: index * .08 + i * .06 }} viewport={{ once: true }}>
+                        <p>{point.text}</p>
+                        <div className={styles.tool_list} aria-label="Tools used">
+                            {point.tools.map(tool => <span className={styles.tool_chip} key={tool}>{toolIcons[tool]}<span>{tool}</span></span>)}
+                        </div>
+                    </motion.li>
                     ))}
                 </ul>
                 </motion.article>

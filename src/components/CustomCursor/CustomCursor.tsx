@@ -3,6 +3,8 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import styles from './CustomCursor.module.css';
 
 const interactiveSelector = 'a, button, [role="button"], .clickable, .certification_item';
+const isInteractiveTarget = (target: EventTarget | null) =>
+    target instanceof Element && target.closest(interactiveSelector) !== null;
 
 const CustomCursor: React.FC = () => {
     const [hovering, setHovering] = useState(false);
@@ -13,7 +15,10 @@ const CustomCursor: React.FC = () => {
 
     useEffect(() => {
         const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-        if (!finePointer.matches) return;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (!finePointer.matches || reducedMotion.matches) return;
+
+        document.documentElement.classList.add(styles.cursor_active);
 
         const onPointerMove = (event: PointerEvent) => {
             if (!hasPositionRef.current) {
@@ -27,19 +32,19 @@ const CustomCursor: React.FC = () => {
             y.set(event.clientY);
         };
         const onPointerOver = (event: PointerEvent) => {
-            setHovering((event.target as HTMLElement | null)?.closest(interactiveSelector) !== null);
+            setHovering(isInteractiveTarget(event.target));
         };
         const onPointerOut = (event: PointerEvent) => {
-            const from = (event.target as HTMLElement | null)?.closest(interactiveSelector);
-            const to = (event.relatedTarget as HTMLElement | null)?.closest(interactiveSelector);
-            if (from && !to) setHovering(false);
-            if (!from && to) setHovering(true);
+            const from = isInteractiveTarget(event.target);
+            const to = isInteractiveTarget(event.relatedTarget);
+            if (from !== to) setHovering(to);
         };
 
         document.addEventListener('pointermove', onPointerMove);
         document.addEventListener('pointerover', onPointerOver);
         document.addEventListener('pointerout', onPointerOut);
         return () => {
+            document.documentElement.classList.remove(styles.cursor_active);
             document.removeEventListener('pointermove', onPointerMove);
             document.removeEventListener('pointerover', onPointerOver);
             document.removeEventListener('pointerout', onPointerOut);
@@ -55,7 +60,9 @@ const CustomCursor: React.FC = () => {
             transition={{ duration: .3, ease: 'easeOut' }}
             aria-hidden="true"
         >
+            <span className={styles.cursorHalo} />
             <span className={styles.innerDot} />
+            <span className={styles.cursorLabel}>VIEW</span>
         </motion.div>
     );
 };

@@ -60,9 +60,11 @@ const CertificationsSection: React.FC = () => {
                     viewport={{ once: true, amount: 0.3 }}
                 >
                     {certificates.map((imgSrc, idx) => (
-                        <motion.div
+                        <motion.button
+                            type="button"
                             key={idx}
                             className={`${styles.certification_item} clickable`}
+                            aria-label={`View certificate ${idx + 1}`}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             whileHover={{ y: -3 }}
@@ -71,7 +73,7 @@ const CertificationsSection: React.FC = () => {
                             onClick={() => openZoom(imgSrc)}
                         >
                             <img src={imgSrc} alt={`Certificate ${idx + 1}`} />
-                        </motion.div>
+                        </motion.button>
                     ))}
                 </motion.div>
             </div>

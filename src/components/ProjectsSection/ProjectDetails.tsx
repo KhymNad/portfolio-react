@@ -1,24 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faMedal } from '@fortawesome/free-solid-svg-icons';
 import { faSquareGithub } from '@fortawesome/free-brands-svg-icons';
-import { faMedal } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './ProjectDetails.module.css';
+
 interface ProjectDetailsProps {
     title: string;
     description: string;
     image: string;
     tags: string[];
     features: string[];
-    liveDemoLink?: string; 
-    githubLink?: string;   
-    githubLinks?: {         
-        label: string;
-        url: string;
-    }[];
-    devpostLink?: string;  
+    liveDemoLink?: string;
+    githubLink?: string;
+    githubLinks?: { label: string; url: string }[];
+    devpostLink?: string;
 }
 
 const ProjectDetails: React.FC<ProjectDetailsProps> = ({
@@ -35,156 +32,187 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
     const navigate = useNavigate();
     const [isZoomed, setIsZoomed] = useState(false);
 
-    const toggleZoom = () => {
-        setIsZoomed(prev => !prev);
-    };
+    useEffect(() => {
+        if (!isZoomed) return;
+        const closeOnEscape = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') setIsZoomed(false);
+        };
+        window.addEventListener('keydown', closeOnEscape);
+        return () => window.removeEventListener('keydown', closeOnEscape);
+    }, [isZoomed]);
+
+    const externalLinkProps = { target: '_blank' as const, rel: 'noopener noreferrer' };
 
     return (
-        <div className={styles.main_content}>
+        <main className={styles.main_content}>
             <div className={styles.navigate}>
                 <button className={styles.back_button} onClick={() => navigate('/#projects')}>
-                    ← Back
+                    <span aria-hidden="true">←</span> Back to projects
                 </button>
-                <div className={styles.route}>
-                    <p className={styles.gray}>Projects</p>
-                    <p className={styles.white}>{'>'}</p>
-                    <p className={styles.white}>{title}</p>
-                </div>
+                <nav className={styles.route} aria-label="Breadcrumb">
+                    <span>Projects</span>
+                    <span aria-hidden="true">/</span>
+                    <span className={styles.current_route} aria-current="page">{title}</span>
+                </nav>
             </div>
 
-            <motion.section
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.35, ease: 'easeOut' }}
+            <motion.article
+                className={styles.project_page}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             >
-                <div className={styles.container}>
-                    <motion.div
-                        className={styles.container_left}
-                        initial={{ y: 12, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.04 }}
-                    >
-                        <div className={styles.project_title}>
-                            <p className={styles.kicker}>PROJECT OVERVIEW</p>
-                            <h1>{title}</h1>
-                            <div className={styles.underline} />
-                        </div>
-                        <p>{description}</p>
-                        <div className={styles.links}>
+                <header className={styles.hero}>
+                    <div className={styles.hero_copy}>
+                        <p className={styles.kicker}><span /> Project overview</p>
+                        <h1>{title}</h1>
+                        <div className={styles.title_rule} aria-hidden="true" />
+                        <p className={styles.description}>{description}</p>
+
+                        <div className={styles.links} aria-label="Project links">
                             {githubLinks && githubLinks.length > 0 ? (
                                 githubLinks.map(({ label, url }) => (
-                                    <a
-                                        key={url}
-                                        href={url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={styles.btnOutline}
-                                    >
-                                        <FontAwesomeIcon icon={faSquareGithub} className={styles.btnIcon} /> {label}
+                                    <a key={url} href={url} {...externalLinkProps} className={styles.primary_link}>
+                                        <FontAwesomeIcon icon={faSquareGithub} /> {label}
+                                        <span className={styles.external_mark} aria-hidden="true">↗</span>
                                     </a>
                                 ))
-                            ) : (
-                                githubLink && (
-                                    <a
-                                        href={githubLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={styles.btnOutline}
-                                    >
-                                        <FontAwesomeIcon icon={faSquareGithub} className={styles.btnIcon} /> Github
-                                    </a>
-                                )
-                            )}
+                            ) : githubLink ? (
+                                <a href={githubLink} {...externalLinkProps} className={styles.primary_link}>
+                                    <FontAwesomeIcon icon={faSquareGithub} /> GitHub
+                                    <span className={styles.external_mark} aria-hidden="true">↗</span>
+                                </a>
+                            ) : null}
 
                             {liveDemoLink && (
-                                <a
-                                    href={liveDemoLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={styles.btnOutline}
-                                >
-                                    <FontAwesomeIcon icon={faPlay} className={styles.btnIcon} />
-                                    Live Demo
+                                <a href={liveDemoLink} {...externalLinkProps} className={styles.secondary_link}>
+                                    <FontAwesomeIcon icon={faPlay} /> Live demo
+                                    <span className={styles.external_mark} aria-hidden="true">↗</span>
                                 </a>
                             )}
 
                             {devpostLink && (
-                                <a
-                                    href={devpostLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={styles.btnOutline}
-                                >
-                                    <FontAwesomeIcon icon={faMedal} className={styles.btnIcon} />
-                                    Devpost
+                                <a href={devpostLink} {...externalLinkProps} className={styles.secondary_link}>
+                                    <FontAwesomeIcon icon={faMedal} /> Devpost
+                                    <span className={styles.external_mark} aria-hidden="true">↗</span>
                                 </a>
                             )}
                         </div>
+                    </div>
 
-                        <h3>&lt;/&gt; Technologies Used</h3>
-                        <div className={styles.tagList}>
-                            {tags.map((tag, i) => (
-                                <span key={i} className={styles.tag}>{tag}</span>
+                    <motion.button
+                        type="button"
+                        className={styles.preview_button}
+                        onClick={() => setIsZoomed(true)}
+                        aria-label={`Expand ${title} project preview`}
+                        whileHover={{ y: -4 }}
+                        whileTap={{ scale: 0.99 }}
+                    >
+                        <img src={image} alt={`${title} screenshot`} className={styles.preview_image} />
+                        <span className={styles.preview_shade} aria-hidden="true" />
+                        <span className={styles.preview_label}>Project preview</span>
+                        <span className={styles.expand_hint}><span aria-hidden="true">⤢</span> View full image</span>
+                    </motion.button>
+                </header>
+
+                <div className={styles.detail_grid}>
+                    <motion.section
+                        className={styles.panel}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        whileHover={{ y: -3 }}
+                        transition={{ duration: 0.3 }}
+                        viewport={{ once: true, amount: 0.25 }}
+                        aria-labelledby="project-highlights"
+                    >
+                        <div className={styles.panel_heading}>
+                            <span className={styles.panel_index}>01</span>
+                            <div>
+                                <p className={styles.panel_kicker}>What it does</p>
+                                <h2 id="project-highlights">Key features</h2>
+                            </div>
+                        </div>
+                        <ul className={styles.feature_list}>
+                            {features.map((feature, index) => (
+                                <motion.li
+                                    key={feature}
+                                    initial={{ opacity: 0, x: -8 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.28, delay: index * 0.07 }}
+                                    viewport={{ once: true }}
+                                >
+                                    <span className={styles.feature_number}>{String(index + 1).padStart(2, '0')}</span>
+                                    <span>{feature}</span>
+                                </motion.li>
+                            ))}
+                        </ul>
+                    </motion.section>
+
+                    <motion.section
+                        className={`${styles.panel} ${styles.technology_panel}`}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        whileHover={{ y: -3 }}
+                        transition={{ duration: 0.3, delay: 0.06 }}
+                        viewport={{ once: true, amount: 0.25 }}
+                        aria-labelledby="project-technologies"
+                    >
+                        <div className={styles.panel_heading}>
+                            <span className={styles.panel_index}>02</span>
+                            <div>
+                                <p className={styles.panel_kicker}>Built with</p>
+                                <h2 id="project-technologies">Technology</h2>
+                            </div>
+                        </div>
+                        <div className={styles.tag_list}>
+                            {tags.map((tag, index) => (
+                                <motion.span
+                                    key={`${tag}-${index}`}
+                                    className={styles.tag}
+                                    whileHover={{ y: -3, scale: 1.03 }}
+                                    transition={{ duration: 0.16 }}
+                                >
+                                    <span className={styles.tag_dot} aria-hidden="true" />
+                                    {tag}
+                                </motion.span>
                             ))}
                         </div>
-                    </motion.div>
-
-                    <motion.div
-                        className={styles.container_right}
-                        initial={{ y: 16, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
-                    >
-                        <div className={`${styles.imageWrapper} clickable`} onClick={toggleZoom}>
-                            <motion.img
-                                src={image}
-                                alt={`${title} screenshot`}
-                                className={styles.image}
-                                whileHover={{ scale: 1.015 }}
-                                transition={{ duration: 0.35, ease: 'easeOut' }}
-                            />
-                        </div>
-
-                        <motion.div
-                            className={styles.features}
-                            whileHover={{ y: -2 }}
-                            transition={{ duration: 0.2, ease: 'easeOut' }}
-                        >
-                            <h3>Key Features</h3>
-                            <ul>
-                                {features.map((feat, i) => (
-                                    <li key={i}>{feat}</li>
-                                ))}
-                            </ul>
-                        </motion.div>
-                    </motion.div>
+                    </motion.section>
                 </div>
-            </motion.section>
+            </motion.article>
 
-            {/* Zoomed Image Modal */}
             <AnimatePresence>
                 {isZoomed && (
                     <motion.div
-                        className={styles.zoomOverlay}
-                        onClick={() => setIsZoomed(false)} // close on overlay click
+                        className={styles.zoom_overlay}
+                        onClick={() => setIsZoomed(false)}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
+                        role="presentation"
                     >
+                        <button
+                            type="button"
+                            className={styles.close_zoom}
+                            onClick={() => setIsZoomed(false)}
+                            aria-label="Close project preview"
+                        >
+                            ×
+                        </button>
                         <motion.img
                             src={image}
-                            alt="Zoomed"
-                            className={styles.zoomedImage}
-                            initial={{ scale: 0.96 }}
-                            animate={{ scale: 1 }}
-                            exit={{ scale: 0.98 }}
-                            transition={{ duration: 0.2, ease: 'easeOut' }}
-                            onClick={(e) => e.stopPropagation()} // prevent overlay click
+                            alt={`${title} full-size screenshot`}
+                            className={styles.zoomed_image}
+                            initial={{ scale: 0.96, y: 8 }}
+                            animate={{ scale: 1, y: 0 }}
+                            exit={{ scale: 0.98, y: 4 }}
+                            transition={{ duration: 0.24, ease: 'easeOut' }}
+                            onClick={event => event.stopPropagation()}
                         />
                     </motion.div>
                 )}
             </AnimatePresence>
-        </div>
+        </main>
     );
 };
 
